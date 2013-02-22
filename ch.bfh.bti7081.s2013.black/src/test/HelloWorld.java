@@ -8,7 +8,7 @@ public class HelloWorld {
     
     public static void main(String[] args){
         
-        // edited online
+        // edited netbeans
         
         System.out.println("Inversini sux dix");
     }
