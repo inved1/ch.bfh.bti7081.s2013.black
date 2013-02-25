@@ -8,6 +8,6 @@ public class HelloWorld {
     
     public static void main(String[] args){
         
-        System.out.println("Inversini sux dix");
+        System.out.println("Inversini rockt");
     }
 }
