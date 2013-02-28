@@ -1112,5 +1112,21 @@
 	}
 }
 
-hr {
+.bs-docs-example-submenus {
+    min-height: 100px;
+}
+
+.bs-docs-example {
+    background-color: #f8f8f8;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    margin: 15px 0;
+    padding: 15px;
+    position: relative;
+    height: auto;
+}
+
+.work-table td {
+  vertical-align: top;
+  padding-right: 20px;
 }
