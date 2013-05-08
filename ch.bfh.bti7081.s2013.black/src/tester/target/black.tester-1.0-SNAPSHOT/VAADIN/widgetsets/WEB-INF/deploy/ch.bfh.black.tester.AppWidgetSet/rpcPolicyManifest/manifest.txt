@@ -1,2 +1,0 @@
-# Module ch.bfh.black.tester.AppWidgetSet
-# RPC service class, partial path of RPC policy file
