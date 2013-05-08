@@ -22,7 +22,7 @@ public class MyVaadinUI extends UI
         layout.setMargin(true);
         setContent(layout);
         
-        Button button = new Button("Click Me");
+        Button button = new Button("Click Me, Dani rockt");
         final TextField txt = new TextField("Text");
         Button btn2 = new Button("Add Text From txtField");
         button.addClickListener(new Button.ClickListener() {
