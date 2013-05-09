@@ -1,22 +1,8 @@
-Thu May 09 10:07:03 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
+Thu May 09 11:03:03 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Thu May 09 10:07:03 CEST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-8854-42e9-00000bbcd052 
-on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
-Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_15/db/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_15-b03
-user.dir=C:\Program Files\Java\jdk1.7.0_15\db
-derby.system.home=C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Thu May 09 10:07:04 CEST 2013:
-Shutting down instance a816c00e-013e-8854-42e9-00000bbcd052 on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
-Thu May 09 10:07:04 CEST 2013 Thread[DRDAConnThread_4,5,main] (DATABASE = apollo), (DRDAID = {2}), Database 'apollo' shutdown.
-----------------------------------------------------------------
-Thu May 09 10:07:17 CEST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance 6c44409f-013e-8854-42e9-00000bbcd052 
-on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
+Thu May 09 11:05:31 CEST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-8887-873a-00000bbcd052 
+on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@4de8b671 
 Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_15/db/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_15-b03
