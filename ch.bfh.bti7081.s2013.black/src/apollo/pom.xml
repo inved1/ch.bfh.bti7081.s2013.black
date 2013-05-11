@@ -12,6 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<vaadin.version>7.0.5</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+	 <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
 	</properties>
 	<repositories>
 		<repository>
@@ -73,6 +74,12 @@
 	  <groupId>org.apache.derby</groupId>
 	  <artifactId>derbyclient</artifactId>
 	  <version>10.10.1.1</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>jdom</groupId>
+	  <artifactId>jdom</artifactId>
+	  <version>1.0</version>
+	  <type>jar</type>
 	 </dependency>
 	</dependencies>
 

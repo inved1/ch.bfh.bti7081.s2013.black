@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <DBuser>root</DBuser>
+    <DBpw>root</DBpw>
+    <DBname>apollo</DBname>
+    <DBtype>derby</DBtype>
+    <DBhost>localhost:1527</DBhost>
+</root>
