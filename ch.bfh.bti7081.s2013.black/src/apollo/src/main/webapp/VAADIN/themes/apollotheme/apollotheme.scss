@@ -1,0 +1,40 @@
+@import "../reindeer/reindeer.scss";
+
+@mixin apollotheme {
+
+	@include reindeer;
+
+	.v-generated-body {
+		font-family: arial,helvetica,clean,sans-serif;
+	}
+
+    .main-footer {
+
+    	position: fixed;
+    	left: 0;
+    	bottom: 0;
+	    background: red;
+	    height: 30px;
+	    width: 100%;
+	}
+
+	.main-menu-bt {
+		display: block;
+		margin: 10px 0;
+	}
+
+	.header-main {
+		padding: 15px 10px 10px;
+		width: 100%;
+		height: 50px;
+		background: #3366FF;
+	}
+
+	.header-main-title {
+		height: 100%;
+		font-weight: bold;
+		color: white;
+		font-size: 26px;
+	}
+
+}

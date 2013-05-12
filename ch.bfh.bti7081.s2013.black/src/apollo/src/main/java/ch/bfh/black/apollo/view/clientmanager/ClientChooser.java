@@ -4,6 +4,8 @@
  */
 package ch.bfh.black.apollo.view.clientmanager;
 
+import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
+import ch.bfh.black.apollo.view.ContentHelper;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -19,28 +21,34 @@ import com.vaadin.ui.VerticalLayout;
 public class ClientChooser extends VerticalLayout implements View {
     public static final String VIEW_NAME = "viewNameClientChooser";
     
-    private Navigator _nav;
+    private ClientManagerController _cmc;
+    private ContentHelper _ch;
     
-    public ClientChooser(Navigator n) {
-        _nav = n;
+    public ClientChooser(ClientManagerController n) {
+        _cmc = n;
+        _ch = new ContentHelper(this);
         
         Label label = new Label("Choose Client");
         addComponent(label);
         
         Button button = new Button("SWEET");
         button.addClickListener(new Button.ClickListener() {
+            
+            @Override
             public void buttonClick(Button.ClickEvent event) {
-                addComponent(new Label("Thank you for clicking, changed by julien."));
                 
-                _nav.navigateTo("");
+                _cmc.chooseClient();
             }
         });
         addComponent(button);
+        
+        _ch.drawFooter();
+        
     }
     
     @Override
     public void enter(ViewChangeEvent event) {
-        Notification.show("Welcome to Client Chooser, CLIENT GOATNESS xD");
+        //Notification.show("Welcome to Client Chooser, CLIENT GOATNESS xD");
     }
     
 }
