@@ -6,6 +6,7 @@ package ch.bfh.black.apollo.view.clientmanager;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.view.ContentHelper;
+import ch.bfh.black.apollo.view.MainMenu;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -26,7 +27,8 @@ public class ClientChooser extends VerticalLayout implements View {
     
     public ClientChooser(ClientManagerController n) {
         _cmc = n;
-        _ch = new ContentHelper(this);
+        _ch = new ContentHelper(this, _cmc);
+        _ch.drawHeaderNav();
         
         Label label = new Label("Choose Client");
         addComponent(label);

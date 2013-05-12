@@ -4,10 +4,13 @@
  */
 package ch.bfh.black.apollo.view;
 
+import ch.bfh.black.apollo.controller.Controller;
 import ch.bfh.black.apollo.model.Dict;
 import com.vaadin.ui.AbstractLayout;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 
 /**
  *
@@ -16,11 +19,19 @@ import com.vaadin.ui.Label;
 public class ContentHelper {
     
     private AbstractLayout _layout;
+    private Controller _controller;
     
     public ContentHelper(AbstractLayout l) {
         
         _layout = l;
         _layout.setSizeFull();
+    }
+    
+    public ContentHelper(AbstractLayout l, Controller c) {
+        
+        this(l);
+        
+        _controller = c;
     }
     
     public void drawHeaderMain() {
@@ -36,7 +47,32 @@ public class ContentHelper {
         
     }
     
-    public void drawHeader() {
+    public void drawHeaderNav() {
+        
+        HorizontalLayout header = new HorizontalLayout();
+        header.setStyleName("header-nav");
+
+        Button back = new Button("", new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                // FIXME wieso nur final hier?????? müsste dynamisch sein verdammt
+                //_controller.navigateToGeneral(MainMenu.VIEW_NAME);
+                
+                //navigateBack();
+                
+                _controller.navigateBack();
+            }
+        });
+        back.setStyleName("header-nav-bt-back");
+        header.addComponent(back);
+        
+        /*Embedded e = new Embedded("Goat", new ThemeResource("img/goat.jpg"));
+        header.addComponent(e);*/
+        
+        _layout.addComponent(header);
+    }
+    
+    private void navigateBack() {
         
         
     }
@@ -45,7 +81,15 @@ public class ContentHelper {
         
         HorizontalLayout f = new HorizontalLayout();
         _layout.addComponent(f);
-        f.addComponent(new Label("footer"));
+        
+        Label date = new Label(Dict.DATE);
+        date.setStyleName("main-footer-date");
+        
+        Label group = new Label(Dict.GROUP_NAME);
+        group.setStyleName("main-footer-group");
+        
+        f.addComponent(date);
+        f.addComponent(group);
         f.setStyleName("main-footer");
         //_layout.setComponentAlignment(f, Alignment.BOTTOM_LEFT);
     }
