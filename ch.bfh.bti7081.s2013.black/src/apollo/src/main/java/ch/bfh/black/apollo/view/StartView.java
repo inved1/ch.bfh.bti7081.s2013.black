@@ -4,7 +4,6 @@
  */
 package ch.bfh.black.apollo.view;
 
-import ch.bfh.black.apollo.MyVaadinUI;
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;

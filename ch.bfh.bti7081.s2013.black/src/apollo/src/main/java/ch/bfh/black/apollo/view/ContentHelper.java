@@ -10,7 +10,7 @@ import com.vaadin.ui.AbstractLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
+import com.vaadin.ui.themes.Reindeer;
 
 /**
  *
@@ -41,41 +41,39 @@ public class ContentHelper {
         
         Label title = new Label(Dict.HEADER_MAIN_TITLE);
         title.setStyleName("header-main-title");
+        header.addComponent(title);
         
         _layout.addComponent(header);
-        header.addComponent(title);
+        
         
     }
     
+    /*
     public void drawHeaderNav() {
         
         HorizontalLayout header = new HorizontalLayout();
         header.setStyleName("header-nav");
 
-        Button back = new Button("", new Button.ClickListener() {
+        Button back = new Button("back button", new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent event) {
-                // FIXME wieso nur final hier?????? müsste dynamisch sein verdammt
-                //_controller.navigateToGeneral(MainMenu.VIEW_NAME);
-                
-                //navigateBack();
                 
                 _controller.navigateBack();
             }
         });
-        back.setStyleName("header-nav-bt-back");
+        //back.setStyleName("header-nav-bt-back");
         header.addComponent(back);
-        
-        /*Embedded e = new Embedded("Goat", new ThemeResource("img/goat.jpg"));
-        header.addComponent(e);*/
         
         _layout.addComponent(header);
     }
+    */
     
+    /*
     private void navigateBack() {
         
         
     }
+    */
     
     public void drawFooter() {
         
@@ -91,6 +89,5 @@ public class ContentHelper {
         f.addComponent(date);
         f.addComponent(group);
         f.setStyleName("main-footer");
-        //_layout.setComponentAlignment(f, Alignment.BOTTOM_LEFT);
     }
 }
