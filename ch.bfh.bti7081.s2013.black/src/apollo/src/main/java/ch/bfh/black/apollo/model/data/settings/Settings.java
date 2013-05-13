@@ -21,13 +21,14 @@ import org.jdom.input.SAXBuilder;
  * create file if emtpy
  */
 public class Settings {
-    private static final String DEFAULT_CONFIG_FILE = "settings.xml";
+    private static final String DEFAULT_CONFIG_FILE = "/settings.xml";
     private static final Map<String, String> settings = new HashMap<String, String>();
     
     private static void initialize() {
         if (settings.isEmpty()) {
             try {
                 Document doc = new SAXBuilder().build(DEFAULT_CONFIG_FILE);
+                System.out.println(doc.toString());
                 for (Iterator<?> it = doc.getRootElement().getChildren().iterator(); it.hasNext();) {
                     Element element = (Element) it.next();
                     settings.put(element.getName(), element.getValue());
