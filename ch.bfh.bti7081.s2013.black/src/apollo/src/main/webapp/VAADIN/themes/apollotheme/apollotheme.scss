@@ -71,9 +71,29 @@
 
 	.header-main-title {
 		height: 100%;
+		width: 100%;
 		font-weight: bold;
 		color: white;
 		font-size: 26px;
+	}
+
+	.client-chooser .v-absolutelayout-wrapper-client-chooser-table {
+		top: 100px;
+	}
+
+	.client-chooser .v-absolutelayout-wrapper-client-chooser-bt-back {
+		top: 250px;
+	}
+
+	.client-chooser-table {
+		top: 100px;
+		left: 0;
+		height: 150px;
+	}
+
+	.client-chooser-bt-back {
+		top: 300px;
+		left: 0px;
 	}
 
 }

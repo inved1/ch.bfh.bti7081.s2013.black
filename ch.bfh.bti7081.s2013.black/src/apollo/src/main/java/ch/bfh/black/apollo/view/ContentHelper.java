@@ -38,6 +38,7 @@ public class ContentHelper {
         
         HorizontalLayout header = new HorizontalLayout();
         header.setStyleName("header-main");
+        header.setWidth("100%");
         
         Label title = new Label(Dict.HEADER_MAIN_TITLE);
         title.setStyleName("header-main-title");
