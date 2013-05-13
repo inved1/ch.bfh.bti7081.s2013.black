@@ -94,8 +94,20 @@ public class Client implements ClientInterface {
       
     }
     
+    
+    public static ArrayList<Client> listAll() throws SQLException {
+        return list("SELECT * FROM "+ SQL_TABLENAME_CLIENT + " Order by ID DESC ");
+    }
 
-  
+    private static ArrayList<Client> list(String SQLCmd) throws SQLException {
+        ArrayList<Client> lst = new ArrayList<Client>();
+        ResultSet rs = Database.exec(SQLCmd);
+        while (rs.next()){
+            lst.add(new Client(rs.getInt("ID")));
+        }
+        return lst; 
+   }
+    
     public void addHistory(ClientHistory clienthistory) throws IllegalArgumentException {
         if (clienthistory == null || clienthistory.getID() <= 0 ){
             throw new IllegalArgumentException("History not aviable, mabye not saved yet");
