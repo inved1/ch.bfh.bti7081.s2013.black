@@ -65,7 +65,10 @@ public class ClientChooser extends AbsoluteLayout implements View {
             @Override
             public void valueChange(Property.ValueChangeEvent event) {
                 
-                Notification.show(event.getProperty().getValue().toString());
+                //Notification.show(event.getProperty().getValue().toString());
+                
+                
+                _cmc.chooseClient(3);
             }
         });
         addComponent(table);
@@ -77,7 +80,7 @@ public class ClientChooser extends AbsoluteLayout implements View {
             @Override
             public void buttonClick(Button.ClickEvent event) {
                 
-                _cmc.chooseClient();
+                _cmc.back();
             }
         });
         addComponent(button);

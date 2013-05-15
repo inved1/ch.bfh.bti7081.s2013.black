@@ -5,38 +5,28 @@
 package ch.bfh.black.apollo.controller.clientmanager;
 
 import ch.bfh.black.apollo.controller.Controller;
+import ch.bfh.black.apollo.controller.MenuManager;
 import ch.bfh.black.apollo.model.State;
-import ch.bfh.black.apollo.view.MainMenu;
-import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
-import com.vaadin.navigator.Navigator;
 
 /**
  *
  * @author vill
  */
 public class ClientManagerController extends Controller {
-
-    public ClientManagerController(Navigator n, State s) {
-        super(n, s);
+    
+    public ClientManagerController(MenuManager mm, State s) {
+        super(mm, s);
     }
     
-    public void clientManagerInit() {
-        _state.menuState.add(ClientChooser.VIEW_NAME);
-        navigate();
+    public void init() {
+        _mm.setMenuState(_mm.getClientChooserState());
+        _mm.init();
     }
     
-    public void chooseClient() {
-        _state.menuState.add(MainMenu.VIEW_NAME);
-        navigate();
-    }
-    
-    public void chooseClientBack() {
-        _state.menuState.add(MainMenu.VIEW_NAME);
-        navigate();
-    }
-    
-    private void navigate() {
-        _nav.navigateTo(_state.menuState.get(_state.menuState.size() - 1));
+    public void chooseClient(int id) {
+        _state.clientId = id;
+        _mm.setMenuState(_mm.getClientDetailState());
+        _mm.init();
     }
 }
 

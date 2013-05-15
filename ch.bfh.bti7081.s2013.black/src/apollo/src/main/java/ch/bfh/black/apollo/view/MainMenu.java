@@ -43,7 +43,7 @@ public class MainMenu extends CssLayout implements View {
         Button btClientManager = new Button(Dict.MAIN_MENU_CM, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                _cmc.clientManagerInit();
+                _cmc.init();
             }
         });
         addComponent(btClientManager);
@@ -55,7 +55,6 @@ public class MainMenu extends CssLayout implements View {
         Button btPublicTransport = new Button(Dict.MAIN_MENU_PT, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                _ptc.publicTransportInit();
             }
         });
         addComponent(btPublicTransport);

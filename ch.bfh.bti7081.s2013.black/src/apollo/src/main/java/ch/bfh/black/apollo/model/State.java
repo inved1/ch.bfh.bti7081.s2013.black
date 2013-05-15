@@ -4,20 +4,19 @@
  */
 package ch.bfh.black.apollo.model;
 
-import ch.bfh.black.apollo.view.MainMenu;
-import java.util.ArrayList;
-
 /**
  *
  * @author vill
  */
 public class State {
 
-    public ArrayList<String> menuState;
+    //public ArrayList<String> menuState;
+    
+    public int clientId;
     
     public State() {
         
-        menuState = new ArrayList<String>();
-        menuState.add(MainMenu.VIEW_NAME);
+        //menuState = new ArrayList<String>();
+        //menuState.add(MainMenu.VIEW_NAME);
     }
 }
