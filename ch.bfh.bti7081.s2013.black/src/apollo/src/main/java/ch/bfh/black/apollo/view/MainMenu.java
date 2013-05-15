@@ -25,6 +25,8 @@ public class MainMenu extends CssLayout implements View {
     private PublicTransportController _ptc;
     private ContentHelper _ch;
     
+    private CssLayout _content;
+    
     public MainMenu(ClientManagerController cmc, PublicTransportController ptc) {
         _cmc = cmc;
         _ptc = ptc;
@@ -32,9 +34,14 @@ public class MainMenu extends CssLayout implements View {
         _ch = new ContentHelper(this);
         _ch.drawHeaderMain();
         
+        _content = new CssLayout();
+        _content.setStyleName("main-menu");
+        _content.setWidth("100%");
+        addComponent(_content);
+        
         Label title = new Label(Dict.MAIN_MENU_TITLE);
         
-        addComponent(title);
+        _content.addComponent(title);
         title.setStyleName("main-menu-title");
         //setComponentAlignment(title, Alignment.TOP_CENTER);
         
@@ -46,7 +53,7 @@ public class MainMenu extends CssLayout implements View {
                 _cmc.init();
             }
         });
-        addComponent(btClientManager);
+        _content.addComponent(btClientManager);
         btClientManager.setStyleName("main-menu-bt");
         //setComponentAlignment(btClientManager, Alignment.TOP_LEFT);
         
@@ -57,7 +64,7 @@ public class MainMenu extends CssLayout implements View {
             public void buttonClick(ClickEvent event) {
             }
         });
-        addComponent(btPublicTransport);
+        _content.addComponent(btPublicTransport);
         btPublicTransport.setStyleName("main-menu-bt");
         //setComponentAlignment(btPublicTransport, Alignment.TOP_LEFT);
         
@@ -69,7 +76,7 @@ public class MainMenu extends CssLayout implements View {
                 
             }
         });
-        addComponent(btXX);
+        _content.addComponent(btXX);
         btXX.setStyleName("main-menu-bt");
         //setComponentAlignment(btXX, Alignment.TOP_LEFT);
         
@@ -81,7 +88,7 @@ public class MainMenu extends CssLayout implements View {
                 
             }
         });
-        addComponent(btYY);
+        _content.addComponent(btYY);
         btYY.setStyleName("main-menu-bt");
         //setComponentAlignment(btYY, Alignment.TOP_LEFT);
         

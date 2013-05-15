@@ -50,11 +50,15 @@
 		top: 5px;
 	}
 
-	.main-menu-title {
+	.main-menu-title, .v-captiontext {
 		margin: 15px 0;
-		padding-left: 10px;
+		/*padding-left: 10px;*/
 		font-weight: normal;
 		font-size: 22px;
+	}
+
+	.v-captiontext {
+		padding-left: 0;
 	}
 
 	.main-menu-bt {
@@ -77,6 +81,25 @@
 		font-size: 26px;
 	}
 
+	.v-table {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	.main-menu, .client-detail, .client-chooser {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.v-csslayout {
+		overflow: visible;
+	}
+
+	.button-back {
+		margin-bottom: 40px;
+	}
+
+	/*
 	.client-chooser .v-absolutelayout-wrapper-client-chooser-table {
 		top: 100px;
 	}
@@ -95,5 +118,6 @@
 		top: 300px;
 		left: 0px;
 	}
+	*/
 
 }

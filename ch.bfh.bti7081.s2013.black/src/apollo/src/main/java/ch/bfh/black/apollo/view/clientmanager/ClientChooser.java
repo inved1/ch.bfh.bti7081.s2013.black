@@ -5,13 +5,14 @@
 package ch.bfh.black.apollo.view.clientmanager;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
+import ch.bfh.black.apollo.model.Dict;
 import ch.bfh.black.apollo.model.data.Client;
 import ch.bfh.black.apollo.view.ContentHelper;
 import com.vaadin.data.Property;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Table;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,11 +24,14 @@ import java.util.logging.Logger;
  * @author vill
  */
 //public class ClientChooser extends VerticalLayout implements View {
-public class ClientChooser extends AbsoluteLayout implements View {
+//public class ClientChooser extends AbsoluteLayout implements View {
+public class ClientChooser extends CssLayout implements View {
     public static final String VIEW_NAME = "clientChooser";
     
     private ClientManagerController _cmc;
     private ContentHelper _ch;
+    
+    private CssLayout _content;
     
     public ClientChooser(ClientManagerController n) {
         
@@ -39,7 +43,11 @@ public class ClientChooser extends AbsoluteLayout implements View {
         _ch = new ContentHelper(this, _cmc);
         _ch.drawHeaderMain();
         
-        setStyleName("client-chooser");
+        _content = new CssLayout();
+        _content.setStyleName("client-chooser");
+        _content.setWidth("100%");
+        addComponent(_content);
+        
         try {
             
             
@@ -49,7 +57,7 @@ public class ClientChooser extends AbsoluteLayout implements View {
             
 
             // TABLE
-            Table table = new Table("Clients");
+            Table table = new Table(Dict.CLIENT_CHOOSER_TITLE);
            
 
             // Define two columns for the built-in container
@@ -72,8 +80,9 @@ public class ClientChooser extends AbsoluteLayout implements View {
             table.setPageLength(5);
             table.setSelectable(true);
             table.setImmediate(true);
-            table.setSizeFull();
-            table.setStyleName("client-chooser-table");
+            table.setWidth("100%");
+            //table.setSizeFull();
+            //table.setStyleName("client-chooser-table");
 
             // Handle selection changes
 
@@ -88,10 +97,11 @@ public class ClientChooser extends AbsoluteLayout implements View {
                     
                 }
             });
-            addComponent(table);
+            _content.addComponent(table);
 
 
             Button button = new Button("back");
+            button.setStyleName("button-back");
             button.addClickListener(new Button.ClickListener() {
 
                 @Override
@@ -100,8 +110,8 @@ public class ClientChooser extends AbsoluteLayout implements View {
                     _cmc.back();
                 }
             });
-            addComponent(button);
-            button.setStyleName("client-chooser-bt-back");
+            _content.addComponent(button);
+            //button.setStyleName("client-chooser-bt-back");
 
 
             _ch.drawFooter();

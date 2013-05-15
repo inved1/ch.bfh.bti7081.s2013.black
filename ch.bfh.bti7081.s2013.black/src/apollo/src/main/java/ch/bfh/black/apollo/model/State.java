@@ -16,6 +16,8 @@ public class State {
     
     public State() {
         
+        clientId = 1;
+        
         //menuState = new ArrayList<String>();
         //menuState.add(MainMenu.VIEW_NAME);
     }

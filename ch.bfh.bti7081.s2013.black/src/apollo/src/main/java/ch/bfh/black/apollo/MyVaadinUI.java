@@ -19,13 +19,13 @@ import com.vaadin.ui.UI;
 @Theme("apollotheme")
 public class MyVaadinUI extends UI
 {
-    Navigator navigator;
     protected static final String MAINVIEW = "main";
     
     ClientManagerController cmc;
     PublicTransportController ptc;
     
     private State _state;
+    private Navigator _navigator;
     private MenuManager _mm;
     
     @Override
@@ -35,16 +35,16 @@ public class MyVaadinUI extends UI
         
         _state = new State();
         
-        // Create a navigator to control the views
-        navigator = new Navigator(this, this);
+        _navigator = new Navigator(this, this);
         
-        _mm = new MenuManager(navigator);
+        _mm = new MenuManager(_navigator);
         
         cmc = new ClientManagerController(_mm, _state);
         //ptc = new PublicTransportController(navigator, _state);
         
-        navigator.addView(MainMenu.VIEW_NAME, new MainMenu(cmc, ptc));
-        navigator.addView(ClientChooser.VIEW_NAME, new ClientChooser(cmc));
-        navigator.addView(ClientDetail.VIEW_NAME, new ClientDetail(cmc));
+        // register all views
+        _navigator.addView(MainMenu.VIEW_NAME, new MainMenu(cmc, ptc));
+        _navigator.addView(ClientChooser.VIEW_NAME, new ClientChooser(cmc));
+        _navigator.addView(ClientDetail.VIEW_NAME, new ClientDetail(cmc));
     }
 }
