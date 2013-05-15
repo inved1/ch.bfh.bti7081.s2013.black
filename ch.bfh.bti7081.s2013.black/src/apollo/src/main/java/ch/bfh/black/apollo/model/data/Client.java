@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 import ch.bfh.black.apollo.model.data.arch.ClientInterface;
 import ch.bfh.black.apollo.model.data.settings.Database;
+import com.vaadin.data.Container;
+import com.vaadin.data.Item;
+import com.vaadin.data.Property;
+import com.vaadin.data.util.IndexedContainer;
+import java.util.Collection;
       
 
 
@@ -20,11 +25,11 @@ import ch.bfh.black.apollo.model.data.settings.Database;
  *
  * @author Daniel Inversini
  */
-public class Client implements ClientInterface {
+public class Client  implements ClientInterface  {
     
     //default values for table
-    public final static String SQL_TABLENAME_CLIENT = "tb_client";
-    public final static String SQL_TABLENAME_CLIENTHISTORY = "tb_client_history";
+    public final static String SQL_TABLENAME_CLIENT = "APP.tb_client";
+    public final static String SQL_TABLENAME_CLIENTHISTORY = "APP.tb_client_history";
     
     //default values with new object
     public final static String CLIENT_NAME1 = "Hans Muster";
@@ -96,9 +101,29 @@ public class Client implements ClientInterface {
     
     
     public static ArrayList<Client> listAll() throws SQLException {
-        return list("SELECT * FROM "+ SQL_TABLENAME_CLIENT + " Order by ID DESC ");
+        return list("SELECT * FROM "+ SQL_TABLENAME_CLIENT + " Order by ID ASC ");
     }
-
+    
+  
+/*
+    public static Container listAllContainer() throws SQLException {
+        Container co = new IndexedContainer();
+        co.addContainerProperty("Name1", String.class, "");
+        co.addContainerProperty("ID", Integer.class,0);
+        
+        for(Client c: listAll()){
+            
+            Object o = co.addItem((Object) c.getClientID());
+            Item i = (Item) o;
+            i.
+            co.addItem(c.getName1(),c.getClientID());
+        }
+        
+        
+        return null;
+        
+    }
+*/
     private static ArrayList<Client> list(String SQLCmd) throws SQLException {
         ArrayList<Client> lst = new ArrayList<Client>();
         ResultSet rs = Database.exec(SQLCmd);

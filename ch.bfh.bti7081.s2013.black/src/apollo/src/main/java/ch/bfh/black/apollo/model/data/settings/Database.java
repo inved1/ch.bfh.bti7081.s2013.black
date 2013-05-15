@@ -22,14 +22,18 @@ public class Database {
     
     private static Connection myDBcnn;
     
+    
     private static synchronized void init() throws SQLException {
          if (myDBcnn == null || !myDBcnn.isValid(0)) {
             String dbType = Settings.get("DBtype");
             String dbHost = Settings.get("DBhost");
             String dbName = Settings.get("DBname");
             String dbUser = Settings.get("DBuser");
-            String dbPassword = Settings.get("DBpassword");
+            String dbPassword = Settings.get("DBpw");
             String dbUrl = "jdbc:" + dbType + "://" + dbHost + "/" + dbName;
+            
+
+            DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
             if (dbUser != null && dbPassword != null) {
                 myDBcnn = DriverManager.getConnection(dbUrl, dbUser,
                         dbPassword);
