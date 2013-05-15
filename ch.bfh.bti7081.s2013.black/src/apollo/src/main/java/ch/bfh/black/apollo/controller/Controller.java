@@ -23,4 +23,8 @@ public class Controller {
     public void back() {
         _mm.back();
     }
+    
+    public State getState(){
+        return _state;
+    }
 }

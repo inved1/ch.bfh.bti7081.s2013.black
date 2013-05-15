@@ -6,11 +6,10 @@ import ch.bfh.black.apollo.controller.publictransport.PublicTransportController;
 import ch.bfh.black.apollo.model.State;
 import ch.bfh.black.apollo.view.MainMenu;
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
+import ch.bfh.black.apollo.view.clientmanager.ClientDetail;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 
 /**
@@ -46,5 +45,6 @@ public class MyVaadinUI extends UI
         
         navigator.addView(MainMenu.VIEW_NAME, new MainMenu(cmc, ptc));
         navigator.addView(ClientChooser.VIEW_NAME, new ClientChooser(cmc));
+        navigator.addView(ClientDetail.VIEW_NAME, new ClientDetail(cmc));
     }
 }

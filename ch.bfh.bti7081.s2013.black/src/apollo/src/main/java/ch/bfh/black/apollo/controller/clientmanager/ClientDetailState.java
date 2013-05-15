@@ -7,6 +7,7 @@ package ch.bfh.black.apollo.controller.clientmanager;
 import ch.bfh.black.apollo.controller.MenuManager;
 import ch.bfh.black.apollo.controller.MenuState;
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
+import ch.bfh.black.apollo.view.clientmanager.ClientDetail;
 
 /**
  *
@@ -22,7 +23,7 @@ public class ClientDetailState implements MenuState{
 
     @Override
     public void init() {
-        
+        _mm.getNavigator().navigateTo(ClientDetail.VIEW_NAME);
     }
 
     @Override

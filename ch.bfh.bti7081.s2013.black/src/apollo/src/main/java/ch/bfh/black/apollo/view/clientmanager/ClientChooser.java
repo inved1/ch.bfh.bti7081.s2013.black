@@ -7,14 +7,11 @@ package ch.bfh.black.apollo.view.clientmanager;
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.model.data.Client;
 import ch.bfh.black.apollo.view.ContentHelper;
-import com.vaadin.data.Container;
 import com.vaadin.data.Property;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Table;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,16 +41,12 @@ public class ClientChooser extends AbsoluteLayout implements View {
         
         setStyleName("client-chooser");
         try {
+            
+            
             Client c = new Client();
             ArrayList<Client> lst = Client.listAll();
             System.out.println(lst.toString());
             
-       
-            
-       
-            
-        
-        
 
             // TABLE
             Table table = new Table("Clients");
@@ -66,13 +59,15 @@ public class ClientChooser extends AbsoluteLayout implements View {
             for(Client cl: lst){
                 table.addItem(new Object[]{cl.getName1(),cl.getClientID()},lst.indexOf(cl)+1);
             }
+            
             /*
             table.addItem(new Object[]{"Julien Villiger", 3333}, 1);
             table.addItem(new Object[]{"Daniel Inversini", 3184}, 2);
             table.addItem(new Object[]{"Fanky", 3648}, 3);
             table.addItem(new Object[]{"Fülli", 3009}, 4);
             table.addItem(new Object[]{"Mao Tse-Tung", 5938}, 5);
-*/
+            */
+
             // Show 5 rows
             table.setPageLength(5);
             table.setSelectable(true);
@@ -87,7 +82,10 @@ public class ClientChooser extends AbsoluteLayout implements View {
                 @Override
                 public void valueChange(Property.ValueChangeEvent event) {
 
-                    Notification.show(event.getProperty().getValue().toString());
+                    //Notification.show(event.getProperty().getValue().toString());
+                    //_cmc.getState().clientId = (Integer)event.getProperty().getValue();
+                    _cmc.chooseClient((Integer)event.getProperty().getValue());
+                    
                 }
             });
             addComponent(table);
@@ -99,7 +97,7 @@ public class ClientChooser extends AbsoluteLayout implements View {
                 @Override
                 public void buttonClick(Button.ClickEvent event) {
 
-                    _cmc.chooseClient();
+                    _cmc.back();
                 }
             });
             addComponent(button);
@@ -110,7 +108,7 @@ public class ClientChooser extends AbsoluteLayout implements View {
         
              
             
-        } catch (SQLException ex) {
+        }catch (SQLException ex) {
             Logger.getLogger(ClientChooser.class.getName()).log(Level.SEVERE, null, ex);
         }
         
