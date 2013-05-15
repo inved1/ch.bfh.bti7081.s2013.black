@@ -5,6 +5,7 @@
 package ch.bfh.black.apollo.view.clientmanager;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
+import ch.bfh.black.apollo.model.data.Client;
 import ch.bfh.black.apollo.view.ContentHelper;
 import com.vaadin.data.Property;
 import com.vaadin.navigator.View;
@@ -14,6 +15,10 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Table;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,6 +42,17 @@ public class ClientChooser extends AbsoluteLayout implements View {
         _ch.drawHeaderMain();
         
         setStyleName("client-chooser");
+        try {
+            Client c = new Client();
+            ArrayList<Client> lst = Client.listAll();
+            System.out.println(lst.toString());
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientChooser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
         
         // TABLE
         Table table = new Table("Clients");

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ClientHistory implements ClientHistoryInterface{
 
     
-    public final static String SQL_TABLENAME_CLIENTHISTORY = "tb_client_history";
+    public final static String SQL_TABLENAME_CLIENTHISTORY = "APP.tb_client_history";
     public final static int DEFAULT_IDCLIENT = 0;
     public final static String DEFAULT_DESCRIPTION = "Beschrieb";
 

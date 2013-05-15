@@ -23,8 +23,8 @@ import ch.bfh.black.apollo.model.data.settings.Database;
 public class Client implements ClientInterface {
     
     //default values for table
-    public final static String SQL_TABLENAME_CLIENT = "tb_client";
-    public final static String SQL_TABLENAME_CLIENTHISTORY = "tb_client_history";
+    public final static String SQL_TABLENAME_CLIENT = "APP.tb_client";
+    public final static String SQL_TABLENAME_CLIENTHISTORY = "APP.tb_client_history";
     
     //default values with new object
     public final static String CLIENT_NAME1 = "Hans Muster";
