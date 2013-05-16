@@ -1,65 +1,17 @@
-Wed May 15 19:55:53 CEST 2013 : Apache Derby Network Server 10.10.1.1 - (1458268) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
+Wed May 15 20:22:11 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed May 15 19:55:53 CEST 2013:
-Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): Instanz a816c00e-013e-a955-80c8-ffffc626a8a2
-für Datenbankverzeichnis /Users/vill/Development/BTI7081q Software Engineering and Design/ch.bfh.bti7081.s2013.black/ch.bfh.bti7081.s2013.black/src/apollo/src/main/java/ch/bfh/black/apollo/model/data/apollo mit Class Loader sun.misc.Launcher$AppClassLoader@69cd2e5f
-Geladen aus file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/db/lib/derby.jar
-java.vendor=Apple Inc.
-java.runtime.version=1.6.0_45-b06-451-11M4406
-user.dir=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/db
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.8.3
-derby.system.home=/Users/vill/Development/BTI7081q Software Engineering and Design/ch.bfh.bti7081.s2013.black/ch.bfh.bti7081.s2013.black/src/apollo/src/main/java/ch/bfh/black/apollo/model/data
-Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
-Wed May 15 19:55:54 CEST 2013 Thread[DRDAConnThread_2,5,main] (XID = 3739), (SESSIONID = 0), (DATABASE = apollo), (DRDAID = {1}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Verbindung konnte nicht authentifiziert werden. Grund: Ungültige Authentifizierung..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: java.sql.SQLException: Verbindung konnte nicht authentifiziert werden. Grund: Ungültige Authentifizierung..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 19 more
-============= begin nested exception, level (1) ===========
-java.sql.SQLException: Verbindung konnte nicht authentifiziert werden. Grund: Ungültige Authentifizierung..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-============= end nested exception, level (1) ===========
-Cleanup action completed
-Wed May 15 19:55:55 CEST 2013 Thread[DRDAConnThread_2,5,main] (DATABASE = apollo), (DRDAID = {1}), Verbindung konnte nicht authentifiziert werden. Grund: Ungültige Authentifizierung..
+Wed May 15 20:22:17 CEST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-a96d-96b2-00000bbcd052 
+on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
+Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_15/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_15-b03
+user.dir=C:\Program Files\Java\jdk1.7.0_15\db
+derby.system.home=C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed May 15 20:29:47 CEST 2013: Shutting down Derby engine
+----------------------------------------------------------------
+Wed May 15 20:29:47 CEST 2013:
+Shutting down instance a816c00e-013e-a96d-96b2-00000bbcd052 on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
+----------------------------------------------------------------
