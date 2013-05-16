@@ -7,6 +7,7 @@ package ch.bfh.black.apollo.view.clientmanager;
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.model.Dict;
 import ch.bfh.black.apollo.model.data.Client;
+import ch.bfh.black.apollo.model.data.ClientHistory;
 import ch.bfh.black.apollo.view.ContentHelper;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -16,6 +17,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Table;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -88,11 +90,16 @@ public class ClientDetail extends CssLayout implements View {
             _tInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
             _tInfo.setPageLength(6);
             
-            _tHistory.removeAllItems();
-            _tHistory.addItem(new Object[]{"12.03.1996", "Beschneidung."}, 1);
-            _tHistory.addItem(new Object[]{"09.05.1997", "Geschlechtsumwandlung."}, 2);
+      /*      _tHistory.removeAllItems();
+            ArrayList<ClientHistory> lst = c.getClientHistory();
+            for(ClientHistory ch:lst ){
+                _tHistory.addItem(new Object[]{ch.getTm(),ch.getDescription()},lst.indexOf(ch)+1);
+            }
+                    
+            //_tHistory.addItem(new Object[]{"12.03.1996", "Beschneidung."}, 1);
+            //_tHistory.addItem(new Object[]{"09.05.1997", "Geschlechtsumwandlung."}, 2);
             _tHistory.setPageLength(4);
-            
+            */
             
         } catch (SQLException ex) {
             

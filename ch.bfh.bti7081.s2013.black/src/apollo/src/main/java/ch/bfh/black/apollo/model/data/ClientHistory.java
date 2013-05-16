@@ -8,6 +8,8 @@ import ch.bfh.black.apollo.model.data.arch.ClientHistoryInterface;
 import ch.bfh.black.apollo.model.data.settings.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+
 
 /**
  *
@@ -23,6 +25,8 @@ public class ClientHistory implements ClientHistoryInterface{
     private int myID;
     private int myIDClient;
     private String myDesc;
+    private Date myTm;
+    
     
     
     public ClientHistory() throws SQLException{
@@ -43,7 +47,7 @@ public class ClientHistory implements ClientHistoryInterface{
         myID = resultSet.getInt("ID");
         myDesc = resultSet.getString("Description");
         myIDClient = resultSet.getInt("ID_Client");
-        
+        myTm = resultSet.getDate("createdTm");
     }
 
     
@@ -81,6 +85,10 @@ public class ClientHistory implements ClientHistoryInterface{
         myIDClient = ID;
     }
 
+    public Date getTm(){
+        return myTm;
+    }
+    
     @Override
     public Integer getClientID() {
         return myIDClient;

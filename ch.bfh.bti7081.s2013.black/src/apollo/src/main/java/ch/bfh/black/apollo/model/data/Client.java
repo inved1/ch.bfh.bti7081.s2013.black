@@ -335,6 +335,9 @@ public class Client  implements ClientInterface  {
         return myCountry;
     }
 
+    public ArrayList<ClientHistory> getClientHistory() throws SQLException{
+        return myHistory;
+    }
 
     
 }

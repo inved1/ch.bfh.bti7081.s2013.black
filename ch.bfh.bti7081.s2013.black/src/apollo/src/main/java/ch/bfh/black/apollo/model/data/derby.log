@@ -1,7 +1,7 @@
-Wed May 15 20:22:11 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
+Thu May 16 20:43:08 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed May 15 20:22:17 CEST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-a96d-96b2-00000bbcd052 
+Thu May 16 20:43:17 CEST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-aea7-1f3e-00000bbcd052 
 on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
 Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_15/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -9,9 +9,3 @@ java.runtime.version=1.7.0_15-b03
 user.dir=C:\Program Files\Java\jdk1.7.0_15\db
 derby.system.home=C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Wed May 15 20:29:47 CEST 2013: Shutting down Derby engine
-----------------------------------------------------------------
-Wed May 15 20:29:47 CEST 2013:
-Shutting down instance a816c00e-013e-a96d-96b2-00000bbcd052 on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
-----------------------------------------------------------------
