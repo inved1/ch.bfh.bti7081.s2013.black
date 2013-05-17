@@ -90,16 +90,16 @@ public class ClientDetail extends CssLayout implements View {
             _tInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
             _tInfo.setPageLength(6);
             
-      /*      _tHistory.removeAllItems();
+            _tHistory.removeAllItems();
             ArrayList<ClientHistory> lst = c.getClientHistory();
             for(ClientHistory ch:lst ){
-                _tHistory.addItem(new Object[]{ch.getTm(),ch.getDescription()},lst.indexOf(ch)+1);
+                _tHistory.addItem(new Object[]{ch.getTm().toString(),ch.getDescription()},lst.indexOf(ch)+1);
             }
                     
             //_tHistory.addItem(new Object[]{"12.03.1996", "Beschneidung."}, 1);
             //_tHistory.addItem(new Object[]{"09.05.1997", "Geschlechtsumwandlung."}, 2);
             _tHistory.setPageLength(4);
-            */
+            
             
         } catch (SQLException ex) {
             

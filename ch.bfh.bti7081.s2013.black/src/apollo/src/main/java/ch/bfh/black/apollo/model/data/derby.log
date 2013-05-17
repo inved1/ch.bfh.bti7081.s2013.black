@@ -1,7 +1,7 @@
-Thu May 16 20:43:08 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
+Fri May 17 08:29:02 CEST 2013 : Apache Derby Network Server - 10.8.2.2 - (1181258) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Thu May 16 20:43:17 CEST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-aea7-1f3e-00000bbcd052 
+Fri May 17 08:29:06 CEST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013e-b12d-66ac-00000bbcd052 
 on database directory C:\Users\Daniel Inversini\Desktop\BFH\develop\SEngineering\ch.bfh.bti7081.s2013.black\ch.bfh.bti7081.s2013.black\src\apollo\src\main\java\ch\bfh\black\apollo\model\data\apollo  with class loader sun.misc.Launcher$AppClassLoader@709db0ad 
 Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_15/db/lib/derby.jar
 java.vendor=Oracle Corporation
