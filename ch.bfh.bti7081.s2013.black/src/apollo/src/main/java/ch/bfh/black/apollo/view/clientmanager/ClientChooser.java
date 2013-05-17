@@ -77,7 +77,7 @@ public class ClientChooser extends CssLayout implements View {
             */
 
             // Show 5 rows
-            table.setPageLength(5);
+            table.setPageLength(14);
             table.setSelectable(true);
             table.setImmediate(true);
             table.setWidth("100%");
