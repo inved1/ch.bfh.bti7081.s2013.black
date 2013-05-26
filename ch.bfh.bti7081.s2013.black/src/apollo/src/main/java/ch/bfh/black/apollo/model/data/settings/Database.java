@@ -33,7 +33,7 @@ public class Database {
             String dbUrl = "jdbc:" + dbType + "://" + dbHost + "/" + dbName;
             
 
-            DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             if (dbUser != null && dbPassword != null) {
                 myDBcnn = DriverManager.getConnection(dbUrl, dbUser,
                         dbPassword);

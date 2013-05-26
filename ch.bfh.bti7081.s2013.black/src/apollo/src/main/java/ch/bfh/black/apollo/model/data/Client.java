@@ -28,8 +28,8 @@ import java.util.Collection;
 public class Client  implements ClientInterface  {
     
     //default values for table
-    public final static String SQL_TABLENAME_CLIENT = "APP.tb_client";
-    public final static String SQL_TABLENAME_CLIENTHISTORY = "APP.tb_client_history";
+    public final static String SQL_TABLENAME_CLIENT = "TB_CLIENT";
+    public final static String SQL_TABLENAME_CLIENTHISTORY = "TB_CLIENT_HISTORY";
     
     //default values with new object
     public final static String CLIENT_NAME1 = "Hans Muster";

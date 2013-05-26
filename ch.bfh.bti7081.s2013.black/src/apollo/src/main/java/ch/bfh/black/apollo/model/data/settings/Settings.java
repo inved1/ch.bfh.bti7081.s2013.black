@@ -28,11 +28,11 @@ public class Settings {
     private static void initialize() {
         if (settings.isEmpty()) {
             try {
-               settings.put("DBuser","root");
-               settings.put("DBpw","root");
-               settings.put("DBtype","derby");
-               settings.put("DBname","apollo");
-               settings.put("DBhost","localhost:1527");
+               settings.put("DBuser","web345");
+               settings.put("DBpw","biobauer22");
+               settings.put("DBtype","mysql");
+               settings.put("DBname","usr_web345_11");
+               settings.put("DBhost","login-5.hoststar.ch:3306");
                
                
                 
