@@ -1,11 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.controller;
 
 /**
- *
+ * Interface for all Menu States.
+ * Every State can be initalized (init) and closed (back).
+ * 
  * @author vill
  */
 public interface MenuState {

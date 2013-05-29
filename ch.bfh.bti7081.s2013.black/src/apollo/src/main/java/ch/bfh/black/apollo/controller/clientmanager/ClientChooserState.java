@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.controller.clientmanager;
 
 import ch.bfh.black.apollo.controller.MenuManager;
@@ -10,26 +6,32 @@ import ch.bfh.black.apollo.view.MainMenu;
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
 
 /**
- *
- * @author vill
+ * Specific Menu State for ClientChooser Menu.
+ * 
+ * @author Julien Villiger
  */
 public class ClientChooserState implements MenuState {
     
-    private MenuManager _mm;
+    private MenuManager _menuManager;
 
-    public ClientChooserState(MenuManager mm) {
-        _mm = mm;
+    /**
+     * 
+     * 
+     * @param menuManager 
+     */
+    public ClientChooserState(MenuManager menuManager) {
+        _menuManager = menuManager;
     }
 
     @Override
     public void init() {
-        _mm.getNavigator().navigateTo(ClientChooser.VIEW_NAME);
+        _menuManager.getNavigator().navigateTo(ClientChooser.VIEW_NAME);
     }
 
     @Override
     public void back() {
-        _mm.getNavigator().navigateTo(MainMenu.VIEW_NAME);
-        _mm.setMenuState(_mm.getMainMenuState());
+        _menuManager.getNavigator().navigateTo(MainMenu.VIEW_NAME);
+        _menuManager.setMenuState(_menuManager.getMainMenuState());
     }
     
 }

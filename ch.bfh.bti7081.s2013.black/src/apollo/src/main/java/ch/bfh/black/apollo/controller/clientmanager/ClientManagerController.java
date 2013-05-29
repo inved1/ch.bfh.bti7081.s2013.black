@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.controller.clientmanager;
 
 import ch.bfh.black.apollo.controller.Controller;
@@ -9,24 +5,38 @@ import ch.bfh.black.apollo.controller.MenuManager;
 import ch.bfh.black.apollo.model.State;
 
 /**
- *
- * @author vill
+ * Handles ClientManager specific controller functionality.
+ * Mainly provides methods for listeners, captured in view.
+ * 
+ * @author Julien Villiger
  */
 public class ClientManagerController extends Controller {
     
-    public ClientManagerController(MenuManager mm, State s) {
-        super(mm, s);
+    /**
+     * @param menuManager
+     * @param state 
+     */
+    public ClientManagerController(MenuManager menuManager, State state) {
+        super(menuManager, state);
     }
     
+    /**
+     * initialize current state
+     */
     public void init() {
-        _mm.setMenuState(_mm.getClientChooserState());
-        _mm.init();
+        _menuManager.setMenuState(_menuManager.getClientChooserState());
+        _menuManager.init();
     }
     
+    /**
+     * switches to client detail view after clicking client-list
+     * 
+     * @param id 
+     */
     public void chooseClient(int id) {
         _state.clientId = id;
-        _mm.setMenuState(_mm.getClientDetailState());
-        _mm.init();
+        _menuManager.setMenuState(_menuManager.getClientDetailState());
+        _menuManager.init();
     }
 }
 

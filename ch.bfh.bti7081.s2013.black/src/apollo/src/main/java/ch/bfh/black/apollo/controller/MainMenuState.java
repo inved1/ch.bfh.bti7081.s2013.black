@@ -1,26 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.controller;
 
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
 
 /**
- *
- * @author vill
+ * State for Main Menu of App.
+ * 
+ * @author Julien Villiger
  */
 public class MainMenuState implements MenuState {
     
-    private MenuManager _mm;
+    private MenuManager _menuManager;
 
-    public MainMenuState(MenuManager mm) {
-        _mm = mm;
+    public MainMenuState(MenuManager menuManager) {
+        _menuManager = menuManager;
     }
     
     @Override
     public void init() {
-        _mm.getNavigator().navigateTo(ClientChooser.VIEW_NAME);
+        _menuManager.getNavigator().navigateTo(ClientChooser.VIEW_NAME);
     }
 
     @Override

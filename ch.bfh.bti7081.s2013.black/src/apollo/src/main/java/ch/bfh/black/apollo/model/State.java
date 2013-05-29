@@ -5,20 +5,18 @@
 package ch.bfh.black.apollo.model;
 
 /**
- *
- * @author vill
- */
-public class State {
+* Runtime variables, independent from class / instance, are saved here.
+*
+* @author Julien Villiger
+* 
+*/
 
-    //public ArrayList<String> menuState;
+public class State {
     
     public int clientId;
     
     public State() {
         
         clientId = 1;
-        
-        //menuState = new ArrayList<String>();
-        //menuState.add(MainMenu.VIEW_NAME);
     }
 }
