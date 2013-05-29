@@ -10,19 +10,24 @@ import java.util.ArrayList;
 
 import ch.bfh.black.apollo.model.data.arch.ClientInterface;
 import ch.bfh.black.apollo.model.data.settings.Database;
-import com.vaadin.data.Container;
-import com.vaadin.data.Item;
-import com.vaadin.data.Property;
-import com.vaadin.data.util.IndexedContainer;
-import java.util.Collection;
       
+/*******************************************************************************
+ * Project:        Apollo, MHC-PMS 
+ * Universtity: BFH Bern
+ * Course:      BTI7081q
+ * 
+ * Class:       Client.java
+ * 
+ *-*****************************************************************************/
 
-
-  
-   
     
-    /**
- *
+ /**
+ * This Class represents a single Client. 
+ * CLient data comes from a mySQL DB, tb_Client
+ * 
+ * 29.05.2013  INV: SQL Commands still used, procedures (stored) 2nd priority
+ *  
+ * 
  * @author Daniel Inversini
  */
 public class Client  implements ClientInterface  {
@@ -55,8 +60,10 @@ public class Client  implements ClientInterface  {
     private ArrayList<ClientHistory> myHistory;
     
      /**
-     * new client, default values
-     */
+      * Initializes a new Client with default attributes
+      * @thrwos SQLException if there's an error on the DB
+      */
+       
     public Client() throws SQLException {
         myName1 = CLIENT_NAME1;
         myName2 = CLIENT_NAME2;
@@ -70,14 +77,22 @@ public class Client  implements ClientInterface  {
     }
             
      /**
-     * get a Client from DB
-     */
+      * Initializes an existing CLient from the DB
+      * 
+      * loads also history, if exists (class ClientHistory.java)
+      * 
+      * @param ID - existing CLient 
+      * @throws SQLException if there's an error on the DB
+      * @throws IllegalArgumentException if the Param ID is invalid
+      */
+     
     public Client(int ID) throws SQLException, IllegalArgumentException {
         ResultSet resultSet = Database.exec("SELECT * FROM "+ SQL_TABLENAME_CLIENT +" WHERE ID = " + ID);
         if (!resultSet.next()) {
             throw new IllegalArgumentException("Kein Clienten gefunden mit ID =" + ID);
         }
 
+        //initialize attributes
         myID = resultSet.getInt("ID");
         myName1 = resultSet.getString("Name1");
         myName2 = resultSet.getString("Name2");
@@ -88,6 +103,8 @@ public class Client  implements ClientInterface  {
         myCountry = resultSet.getString("Country");
         
         
+        
+        //get history
         myHistory = new ArrayList<ClientHistory>();
         
         resultSet = Database.exec("SELECT ID from " + SQL_TABLENAME_CLIENTHISTORY + " WHERE ID_Client = " + ID);
@@ -96,10 +113,13 @@ public class Client  implements ClientInterface  {
             
         }
 
-      
     }
     
-    
+    /**
+     * 
+     * @return list of all CLients 
+     * @throws SQLException 
+     */
     public static ArrayList<Client> listAll() throws SQLException {
         return list("SELECT * FROM "+ SQL_TABLENAME_CLIENT + " Order by ID ASC ");
     }

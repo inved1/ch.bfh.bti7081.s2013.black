@@ -20,11 +20,11 @@ import java.util.ArrayList;
  */
 public class Database {
     
-    private static Connection myDBcnn;
+    private static Connection myDBcnn = null;
     
     
     private static synchronized void init() throws SQLException {
-         if (myDBcnn == null || !myDBcnn.isValid(0)) {
+         if (myDBcnn == null ) {
             String dbType = Settings.get("DBtype");
             String dbHost = Settings.get("DBhost");
             String dbName = Settings.get("DBname");
