@@ -7,21 +7,29 @@ package ch.bfh.black.apollo.controller;
 import ch.bfh.black.apollo.model.State;
 
 /**
- *
- * @author vill
+ * General controller.
+ * All other controllers extend this one.
+ * 
+ * Has basic methods which are used for every controller.
+ * 
+ * @author Julien Villiger
  */
 public class Controller {
     
-    protected MenuManager _mm;
+    protected MenuManager _menuManager;
     protected State _state;
-
-    public Controller(MenuManager mm, State s) {
-        _mm = mm;
-        _state = s;
+    
+    /**
+     * @param menuManager
+     * @param state 
+     */
+    public Controller(MenuManager menuManager, State state) {
+        _menuManager = menuManager;
+        _state = state;
     }
     
     public void back() {
-        _mm.back();
+        _menuManager.back();
     }
     
     public State getState(){

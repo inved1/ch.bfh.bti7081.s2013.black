@@ -5,7 +5,6 @@
 package ch.bfh.black.apollo.view;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
-import ch.bfh.black.apollo.controller.publictransport.PublicTransportController;
 import ch.bfh.black.apollo.model.Dict;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -15,21 +14,25 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
 
 /**
- *
- * @author vill
- */
+* Main Menu View where several modules are selectable.
+* Button Clicks are handled.
+* 
+*
+* @author Julien Villiger
+* 
+*/
+
 public class MainMenu extends CssLayout implements View {
     public static final String VIEW_NAME = "";
     
     private ClientManagerController _cmc;
-    private PublicTransportController _ptc;
     private ContentHelper _ch;
     
     private CssLayout _content;
     
-    public MainMenu(ClientManagerController cmc, PublicTransportController ptc) {
+    public MainMenu(ClientManagerController cmc) {
+        
         _cmc = cmc;
-        _ptc = ptc;
         
         _ch = new ContentHelper(this);
         _ch.drawHeaderMain();

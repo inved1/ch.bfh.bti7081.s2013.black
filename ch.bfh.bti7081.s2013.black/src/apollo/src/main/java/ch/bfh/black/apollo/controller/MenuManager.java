@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.controller;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientChooserState;
@@ -11,33 +7,42 @@ import ch.bfh.black.apollo.view.clientmanager.ClientDetail;
 import com.vaadin.navigator.Navigator;
 
 /**
- *
- * @author vill
- */
-public class MenuManager {
+* MenuManager handles the different View-States of the app.
+* Implemented with State Pattern.
+*
+* @author Julien Villiger
+* 
+*/
 
+public class MenuManager {
+    
     private MenuState _menuState;
-    private Navigator _nav;
+    private Navigator _navigator;
     
     // states
-    private MainMenuState _mms;
-    private ClientChooserState _ccs;
-    private ClientDetailState _cds;
+    private MainMenuState _mainMenuState;
+    private ClientChooserState _clientChooserState;
+    private ClientDetailState clientDetailState;
     
+    /**
+     * 
+     * @param nav 
+     */
     public MenuManager(Navigator nav) {
         
-        _nav = nav;
+        _navigator = nav;
         
-        _mms = new MainMenuState(this);
-        _ccs = new ClientChooserState(this);
-        _cds = new ClientDetailState(this);
+        // different menu states are initialized
+        // every screen (menu state) has its own state class (based on state pattern)
+        _mainMenuState = new MainMenuState(this);
+        _clientChooserState = new ClientChooserState(this);
+        clientDetailState = new ClientDetailState(this);
         
-        _menuState = _mms;
-        
-        if(nav.getState().equals(ClientChooser.VIEW_NAME)) _menuState = _ccs;
-        else if(nav.getState().equals(ClientDetail.VIEW_NAME)) _menuState = _cds;
-        else _menuState = _mms;
-        
+        // setting the first state, depending which menu state is already active
+        // (typing subpage in adressbar)
+        if(nav.getState().equals(ClientChooser.VIEW_NAME)) _menuState = _clientChooserState;
+        else if(nav.getState().equals(ClientDetail.VIEW_NAME)) _menuState = clientDetailState;
+        else _menuState = _mainMenuState;
     }
     
     public void init() {
@@ -53,18 +58,18 @@ public class MenuManager {
     }
     
     public Navigator getNavigator() {
-        return _nav;
+        return _navigator;
     }
     
     public MainMenuState getMainMenuState() {
-        return _mms;
+        return _mainMenuState;
     }
     
     public ClientChooserState getClientChooserState() {
-        return _ccs;
+        return _clientChooserState;
     }
     
     public ClientDetailState getClientDetailState() {
-        return _cds;
+        return clientDetailState;
     }
 }

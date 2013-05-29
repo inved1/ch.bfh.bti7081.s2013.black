@@ -7,19 +7,17 @@ package ch.bfh.black.apollo.view;
 import ch.bfh.black.apollo.controller.Controller;
 import ch.bfh.black.apollo.model.Dict;
 import com.vaadin.ui.AbstractLayout;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.themes.Reindeer;
 
 /**
- *
- * @author vill
+ * Creates multiple used UI elements.
+ * 
+ * @author Julien Villiger
  */
 public class ContentHelper {
     
     private AbstractLayout _layout;
-    private Controller _controller;
     
     public ContentHelper(AbstractLayout l) {
         
@@ -30,10 +28,11 @@ public class ContentHelper {
     public ContentHelper(AbstractLayout l, Controller c) {
         
         this(l);
-        
-        _controller = c;
     }
     
+    /**
+     * draws the header of the app.
+     */
     public void drawHeaderMain() {
         
         HorizontalLayout header = new HorizontalLayout();
@@ -45,36 +44,7 @@ public class ContentHelper {
         header.addComponent(title);
         
         _layout.addComponent(header);
-        
-        
     }
-    
-    /*
-    public void drawHeaderNav() {
-        
-        HorizontalLayout header = new HorizontalLayout();
-        header.setStyleName("header-nav");
-
-        Button back = new Button("back button", new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent event) {
-                
-                _controller.navigateBack();
-            }
-        });
-        //back.setStyleName("header-nav-bt-back");
-        header.addComponent(back);
-        
-        _layout.addComponent(header);
-    }
-    */
-    
-    /*
-    private void navigateBack() {
-        
-        
-    }
-    */
     
     public void drawFooter() {
         
