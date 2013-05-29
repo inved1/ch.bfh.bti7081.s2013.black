@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.view.clientmanager;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
@@ -13,92 +9,102 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Table;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
- * @author vill
+ * All Client Detail Information are shown with its history.
+ * 
+ * @author Julien Villiger
  */
-//public class ClientDetail extends AbsoluteLayout implements View {
-public class ClientDetail extends CssLayout implements View {    
+
+public class ClientDetail extends CssLayout implements View {  
+    
+    // unique name for this view
     public static final String VIEW_NAME = "clientDetail";
 
-    private ClientManagerController _cmc;
-    private ContentHelper _ch;
+    private ClientManagerController _clientManagerController;
+    private ContentHelper _contentHelper;
     
     private CssLayout _content;
     
-    private Table _tInfo;
-    private Table _tHistory;
+    private Table _tableInfo;
+    private Table _tableHistory;
     
-    public ClientDetail(ClientManagerController n) {
-        _cmc = n;
+    public ClientDetail(ClientManagerController clientManagerController) {
         
-        _ch = new ContentHelper(this, _cmc);
-        _ch.drawHeaderMain();
+        setHeight("100%");
         
+        _clientManagerController = clientManagerController;
+        
+        // init
+        _contentHelper = new ContentHelper(this, _clientManagerController);
         _content = new CssLayout();
+        
+        // draw header
+        _contentHelper.drawHeaderMain();
+        
+        // adjust layout
         _content.setStyleName("client-detail");
         _content.setWidth("100%");
         _content.setHeight("100%");
         addComponent(_content);
         
-        // table Info
-        _tInfo = new Table(Dict.CLIENT_DETAIL_TITLE);
-        _tInfo.addContainerProperty("Name", String.class, null);
-        _tInfo.addContainerProperty("Nr", String.class, null);
-        _tInfo.setWidth("100%");
-        _content.addComponent(_tInfo);
+        // adjust table Info
+        _tableInfo = new Table(Dict.CLIENT_DETAIL_TITLE);
+        _tableInfo.addContainerProperty("Name", String.class, null);
+        _tableInfo.addContainerProperty("Nr", String.class, null);
+        _tableInfo.setWidth("100%");
+        _content.addComponent(_tableInfo);
         
+        // adjust table history
+        _tableHistory = new Table(Dict.CLIENT_DETAIL_HISTORY_TITLE);
+        _tableHistory.addContainerProperty("Date", String.class, null);
+        _tableHistory.addContainerProperty("Description", String.class, null);
+        _tableHistory.setWidth("100%");
+        _content.addComponent(_tableHistory);
         
-        _tHistory = new Table(Dict.CLIENT_DETAIL_HISTORY_TITLE);
-        _tHistory.addContainerProperty("Date", String.class, null);
-        _tHistory.addContainerProperty("Description", String.class, null);
-        _tHistory.setWidth("100%");
-        _content.addComponent(_tHistory);
-        
-        
+        // create back button
         Button button = new Button("back");
         button.setStyleName("button-back");
         button.addClickListener(new Button.ClickListener() {
 
-                @Override
-                public void buttonClick(Button.ClickEvent event) {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
 
-                    _cmc.back();
-                }
-            });
+                _clientManagerController.back();
+            }
+        });
         _content.addComponent(button);
         
-        _ch.drawFooter();
+        // draw footer
+        _contentHelper.drawFooter();
     }
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
         try {
-            Client c  = new Client(_cmc.getState().clientId);
+            Client c  = new Client(_clientManagerController.getState().clientId);
             
-            //clear table
-            _tInfo.removeAllItems();
-            _tInfo.addItem(new Object[]{"Name", c.getName1()}, 1);
-            _tInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
-            _tInfo.setPageLength(6);
+            // clear table info
+            _tableInfo.removeAllItems();
             
-            _tHistory.removeAllItems();
+            // adjust table info
+            _tableInfo.addItem(new Object[]{"Name", c.getName1()}, 1);
+            _tableInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
+            _tableInfo.setPageLength(6);
+            
+            // clear table history
+            _tableHistory.removeAllItems();
+            
+            // adjust table history
             ArrayList<ClientHistory> lst = c.getClientHistory();
             for(ClientHistory ch:lst ){
-                _tHistory.addItem(new Object[]{ch.getTm().toString(),ch.getDescription()},lst.indexOf(ch)+1);
+                _tableHistory.addItem(new Object[]{ch.getTm().toString(),ch.getDescription()},lst.indexOf(ch)+1);
             }
-                    
-            //_tHistory.addItem(new Object[]{"12.03.1996", "Beschneidung."}, 1);
-            //_tHistory.addItem(new Object[]{"09.05.1997", "Geschlechtsumwandlung."}, 2);
-            _tHistory.setPageLength(4);
+            _tableHistory.setPageLength(4);
             
             
         } catch (SQLException ex) {

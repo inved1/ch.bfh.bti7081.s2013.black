@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.view;
 
 import ch.bfh.black.apollo.controller.Controller;
@@ -46,6 +42,9 @@ public class ContentHelper {
         _layout.addComponent(header);
     }
     
+    /**
+     * draws the footer of the app.
+     */
     public void drawFooter() {
         
         HorizontalLayout f = new HorizontalLayout();

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.view;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
@@ -14,93 +10,91 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
 
 /**
-* Main Menu View where several modules are selectable.
+* Main Menu View where all modules are selectable.
 * Button Clicks are handled.
-* 
 *
 * @author Julien Villiger
-* 
 */
 
 public class MainMenu extends CssLayout implements View {
+    
+    // unique name for this view
     public static final String VIEW_NAME = "";
     
-    private ClientManagerController _cmc;
-    private ContentHelper _ch;
+    private ClientManagerController _clientManagerController;
+    private ContentHelper _contentHelper;
     
     private CssLayout _content;
     
-    public MainMenu(ClientManagerController cmc) {
+    public MainMenu(ClientManagerController clientManagerController) {
         
-        _cmc = cmc;
+        _clientManagerController = clientManagerController;
         
-        _ch = new ContentHelper(this);
-        _ch.drawHeaderMain();
-        
+        // init
+        _contentHelper = new ContentHelper(this);
         _content = new CssLayout();
+        Label title = new Label(Dict.MAIN_MENU_TITLE);
+        
+        // draw header
+        _contentHelper.drawHeaderMain();
+        
+        // adjust layout
         _content.setStyleName("main-menu");
         _content.setWidth("100%");
         addComponent(_content);
         
-        Label title = new Label(Dict.MAIN_MENU_TITLE);
-        
+        // set title of view
         _content.addComponent(title);
         title.setStyleName("main-menu-title");
-        //setComponentAlignment(title, Alignment.TOP_CENTER);
         
-        
-        // Client Manager
+        // generate Client Manager button
         Button btClientManager = new Button(Dict.MAIN_MENU_CM, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                _cmc.init();
+                _clientManagerController.init();
             }
         });
         _content.addComponent(btClientManager);
         btClientManager.setStyleName("main-menu-bt");
-        //setComponentAlignment(btClientManager, Alignment.TOP_LEFT);
         
         
-        // Public Transport
+        // generate Feature 2 button
         Button btPublicTransport = new Button(Dict.MAIN_MENU_PT, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
+                // nothing
             }
         });
         _content.addComponent(btPublicTransport);
         btPublicTransport.setStyleName("main-menu-bt");
-        //setComponentAlignment(btPublicTransport, Alignment.TOP_LEFT);
         
         
-        // XX
+        // generate Feature 3 button
         Button btXX = new Button(Dict.MAIN_MENU_XX, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                
+                // nothing
             }
         });
         _content.addComponent(btXX);
         btXX.setStyleName("main-menu-bt");
-        //setComponentAlignment(btXX, Alignment.TOP_LEFT);
         
         
-        // YY
+        // generate Feature 4 button
         Button btYY = new Button(Dict.MAIN_MENU_YY, new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                
+                // nothing
             }
         });
         _content.addComponent(btYY);
         btYY.setStyleName("main-menu-bt");
-        //setComponentAlignment(btYY, Alignment.TOP_LEFT);
         
-        
-        _ch.drawFooter();
+        // draw footer
+        _contentHelper.drawFooter();
     }        
         
     @Override
     public void enter(ViewChangeEvent event) {
-        //Notification.show("Yeah, StartView, GOATNESS :D");
     }
 }
