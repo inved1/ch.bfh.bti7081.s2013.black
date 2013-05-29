@@ -116,34 +116,21 @@ public class Client  implements ClientInterface  {
     }
     
     /**
+     * list all existing Clients
      * 
      * @return list of all CLients 
-     * @throws SQLException 
+     * @throws SQLException  if there's an error on the DB
      */
     public static ArrayList<Client> listAll() throws SQLException {
         return list("SELECT * FROM "+ SQL_TABLENAME_CLIENT + " Order by ID ASC ");
     }
     
-  
-/*
-    public static Container listAllContainer() throws SQLException {
-        Container co = new IndexedContainer();
-        co.addContainerProperty("Name1", String.class, "");
-        co.addContainerProperty("ID", Integer.class,0);
-        
-        for(Client c: listAll()){
-            
-            Object o = co.addItem((Object) c.getClientID());
-            Item i = (Item) o;
-            i.
-            co.addItem(c.getName1(),c.getClientID());
-        }
-        
-        
-        return null;
-        
-    }
-*/
+    /**
+     * Executes an SQL query and returns all the Clients 
+     * @param SQLCmd the query which will be executed
+     * @return a list with all the clients
+     * @throws SQLException 
+     */
     private static ArrayList<Client> list(String SQLCmd) throws SQLException {
         ArrayList<Client> lst = new ArrayList<Client>();
         ResultSet rs = Database.exec(SQLCmd);
@@ -153,6 +140,14 @@ public class Client  implements ClientInterface  {
         return lst; 
    }
     
+    /**
+     * adds a history to the client
+     * the client must be aviable, means saved on the db
+     * 
+     * @param clienthistory the history to be saved
+     * @throws IllegalArgumentException  if the Client is not aviable or not saved
+     */
+    @Override
     public void addHistory(ClientHistory clienthistory) throws IllegalArgumentException {
         if (clienthistory == null || clienthistory.getID() <= 0 ){
             throw new IllegalArgumentException("History not aviable, mabye not saved yet");
@@ -163,6 +158,11 @@ public class Client  implements ClientInterface  {
     }
 
 
+    /**
+     * removes a History from the client
+     * @param clienthistory the history to reoved
+     * @throws IllegalArgumentException uf the history is not on this client 
+     */
     @Override
     public void removeHistory(ClientHistory clienthistory) throws IllegalArgumentException {
         if (!myHistory.remove(clienthistory)){
@@ -170,6 +170,11 @@ public class Client  implements ClientInterface  {
         }
     }
 
+    /**
+     * saves the client and its attributeso the DB
+     * if it doesnt exists - insert, else update
+     * @throws SQLException if any error on the DB
+     */
     @Override
     public void save() throws SQLException {
         ResultSet resultSet;
@@ -218,6 +223,7 @@ public class Client  implements ClientInterface  {
         }
         
         //finally delete all history and ad them new - NOT VERY NICE
+        // needs to be redone in another sprint - 29.05.2013
         Database.exec("DELETE FROM " + SQL_TABLENAME_CLIENTHISTORY + " WHERE ID_Client = " + this.myID);
         
         for (ClientHistory h: this.myHistory){
@@ -226,6 +232,7 @@ public class Client  implements ClientInterface  {
       
     }
 
+    @Override
     public void remove(boolean withHistory) throws SQLException, IllegalArgumentException {
         ClientHistory ch;
         ResultSet resultSet;
