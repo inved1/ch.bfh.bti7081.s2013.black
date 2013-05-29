@@ -15,8 +15,6 @@ public class ClientChooserState implements MenuState {
     private MenuManager _menuManager;
 
     /**
-     * 
-     * 
      * @param menuManager 
      */
     public ClientChooserState(MenuManager menuManager) {

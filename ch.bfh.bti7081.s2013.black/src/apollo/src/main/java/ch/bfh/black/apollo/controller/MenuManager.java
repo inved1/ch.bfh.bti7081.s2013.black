@@ -25,7 +25,6 @@ public class MenuManager {
     private ClientDetailState clientDetailState;
     
     /**
-     * 
      * @param nav 
      */
     public MenuManager(Navigator nav) {
