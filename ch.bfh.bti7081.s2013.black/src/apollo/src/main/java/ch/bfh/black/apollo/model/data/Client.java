@@ -232,6 +232,12 @@ public class Client  implements ClientInterface  {
       
     }
 
+    /**
+     * removes a Client, with or without history. 
+     * @param withHistory
+     * @throws SQLException if there is an error on the DB
+     * @throws IllegalArgumentException 
+     */
     @Override
     public void remove(boolean withHistory) throws SQLException, IllegalArgumentException {
         ClientHistory ch;
@@ -248,7 +254,12 @@ public class Client  implements ClientInterface  {
         
     }
 
-    
+    /**
+     * copys a whole Client, even with history
+     * @return the new saved Client clone of this Client
+     * @throws SQLException if any error on the DB
+     */
+    @Override
     public ClientInterface copy() throws SQLException {
         Client newClient = new Client();
         
@@ -260,6 +271,16 @@ public class Client  implements ClientInterface  {
         newClient.myCity = this.myCity;
         newClient.myCountry = this.myCountry;
         
+        try {
+            for (ClientHistory cHistory: myHistory)
+                newClient.addHistory(cHistory);
+        }
+        catch (IllegalArgumentException ex) {
+            newClient.remove(false);
+            throw ex;
+        }
+                
+        
         newClient.save();
         return newClient;
                    
@@ -267,11 +288,22 @@ public class Client  implements ClientInterface  {
     }
 
    
+    /**
+     * returns the ID of the current CLient
+     * @return the ID of the Client
+     */
+    @Override
     public int getClientID() {
         return myID;
     }
 
   
+    /**
+     * Sets the Name1 of the Client, checks lenght (max 255)
+     * @param name1 the name to be saved
+     * @throws IllegalArgumentException if any error
+     */
+    @Override
     public void setClientName1(String name1) throws IllegalArgumentException {
         if (name1 == null || name1.length() > 255 ) {
             throw new IllegalArgumentException("Name1 is empty or too long (more than 255 characters).");
@@ -279,11 +311,21 @@ public class Client  implements ClientInterface  {
         myName1 = name1;
     }
 
+    /**
+     * returns the Name1 of the Client
+     * @return the name1
+     */
+    @Override
     public String getName1() {
        return myName1;
     }
 
-
+    /**
+     * sets the name2 of the client, checks the length of the string, max 255
+     * @param name2 the name2 of the client
+     * @throws IllegalArgumentException if string is NULL or too long
+     */
+    @Override
     public void setClientName2(String name2) throws IllegalArgumentException {
         if (name2 == null || name2.length() > 255 ) {
             throw new IllegalArgumentException("Name2 is empty or too long (more than 255 characters).");
@@ -292,11 +334,22 @@ public class Client  implements ClientInterface  {
     }
 
 
+    /**
+     * gets the name2 of the client
+     * @return the name2
+     */
+    @Override
     public String getName2() {
         return myName2;
     }
 
 
+    /**
+     * sets the name3 of the client, checks also if null or length is too long, max 255
+     * @param name3 the name3 of the client
+     * @throws IllegalArgumentException if null or too long
+     */
+    @Override
     public void setClientName3(String name3) throws IllegalArgumentException {
         if (name3 == null || name3.length() > 255 ) {
             throw new IllegalArgumentException("Name3 is empty or too long (more than 255 characters).");
@@ -305,11 +358,22 @@ public class Client  implements ClientInterface  {
     }
 
   
+    /**
+     * gets the name3 of the Client
+     * @return the name3
+     */
+    @Override
     public String getName3() {
         return myName3;
     }
 
 
+    /**
+     * sets the street of the client, checks if null or string too long, max 255
+     * @param street the new street to be saved
+     * @throws IllegalArgumentException if its too long or null
+     */
+    @Override
     public void setClientStreet(String street) throws IllegalArgumentException {
         if (street == null || street.length() > 255 ) {
             throw new IllegalArgumentException("Street is empty or too long (more than 255 characters).");
@@ -318,11 +382,23 @@ public class Client  implements ClientInterface  {
     }
 
    
+    /**
+     * gets the street of the client
+     * @return the street
+     */
+    @Override
     public String getStreet() {
         return myStreet;
     }
 
     
+    /**
+     * sets the zipcode of the client, as a string, not as an it
+     * @param zip
+     * @throws IllegalArgumentException if zhe zipcode is longer than 4 chars or if its null
+     * 
+     */
+    @Override
     public void setClientZIP(String zip) throws IllegalArgumentException {
         if (zip == null || zip.length() > 4 ) {
             throw new IllegalArgumentException("ZIP is empty or too long (more than 4 characters).");
@@ -330,12 +406,22 @@ public class Client  implements ClientInterface  {
         myZIP = zip;
     }
 
-    
+    /**
+     * gets the zipcode - as a string, not an int
+     * @return the zipcode
+     */
+    @Override
     public String getZip() {
         return myZIP;
     }
 
    
+    /**
+     * sets the client city, checks maxlenght and if'ts null
+     * @param city
+     * @throws IllegalArgumentException if string is too long or null
+     */
+    @Override
     public void setClientCity(String city) throws IllegalArgumentException {
         if (city == null || city.length() > 255 ) {
             throw new IllegalArgumentException("City is empty or too long (more than 255 characters).");
@@ -343,12 +429,22 @@ public class Client  implements ClientInterface  {
         myCity = city;
     }
 
-    
+    /**
+     * gets the clients city
+     * @return the city
+     */
+    @Override
     public String getCity() {
         return myCity;
     }
 
     
+    /**
+     * sets the coutrny of the client,maxlength of 2
+     * @param country 
+     * @throws IllegalArgumentException if country is null or longer 2 chars
+     */
+    @Override
     public void setClientCountry(String country) throws IllegalArgumentException {
         if(country == null || country.length() > 2) {
              throw new IllegalArgumentException("Country is empty or too long (more than 2 characters).");
@@ -357,11 +453,20 @@ public class Client  implements ClientInterface  {
         
     }
 
+    /**
+     * gets the city of the client
+     * @return the city
+     */
     @Override
     public String getCountry() {
         return myCountry;
     }
 
+    /**
+     * gets the history of the client as an array
+     * @return the full history
+     * @throws SQLException if any error on the DB
+     */
     public ArrayList<ClientHistory> getClientHistory() throws SQLException{
         return myHistory;
     }

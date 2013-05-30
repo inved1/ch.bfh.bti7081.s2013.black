@@ -4,16 +4,35 @@
  */
 package ch.bfh.black.apollo.model.data.arch;
 
+
+import ch.bfh.black.apollo.model.data.Client;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import ch.bfh.black.apollo.model.data.ClientHistory;
+import java.util.ArrayList;
+
+
+
+/*******************************************************************************
+ * Project:        Apollo, MHC-PMS 
+ * Universtity: BFH Bern
+ * Course:      BTI7081q
+ * 
+ * Class:       ClientInterface.java
+ * 
+ *-*****************************************************************************/
+
+
 /**
- *
+ * This Class represents the Interface of the Client,
+ * more infos see Client.java
+ * 
+ * 
  * @author Daniel Inversini
  */
 public interface ClientInterface {
     
+  
     void addHistory(ClientHistory clienthistory) throws IllegalArgumentException;
     void removeHistory(ClientHistory clienthistory) throws IllegalArgumentException;
     
