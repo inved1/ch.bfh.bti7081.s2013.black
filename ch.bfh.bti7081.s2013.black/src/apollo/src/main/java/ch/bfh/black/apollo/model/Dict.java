@@ -1,13 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.bfh.black.apollo.model;
 
 /**
  * Provides app with text.
  * 
- * @author vill
+ * @author Julien Villiger
  */
 public class Dict {
     

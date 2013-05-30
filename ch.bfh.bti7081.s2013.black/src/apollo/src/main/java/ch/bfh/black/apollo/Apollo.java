@@ -14,16 +14,15 @@ import com.vaadin.ui.UI;
 
 /**
 * The Application's "main" class
+* Creates all essential instances and initializes the navigator
 * 
-* 
-*
 * @author Julien Villiger
-* 
 */
 
 @SuppressWarnings("serial")
 
 // working with own theme, based on reindeer.
+// styles defined in apollotheme.scss
 @Theme("apollotheme")
 public class Apollo extends UI
 {
