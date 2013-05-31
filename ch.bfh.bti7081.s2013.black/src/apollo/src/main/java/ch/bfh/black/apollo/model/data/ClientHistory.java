@@ -29,7 +29,7 @@ import java.util.Date;
 public class ClientHistory implements ClientHistoryInterface{
 
     //default values
-    public final static String SQL_TABLENAME_CLIENTHISTORY = "APP.tb_client_history";
+    public final static String SQL_TABLENAME_CLIENTHISTORY = "TB_CLIENT_HISTORY";
     public final static int DEFAULT_IDCLIENT = 0;
     public final static String DEFAULT_DESCRIPTION = "Beschrieb";
 
