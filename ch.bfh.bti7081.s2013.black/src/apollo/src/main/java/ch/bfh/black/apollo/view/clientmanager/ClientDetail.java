@@ -54,7 +54,7 @@ public class ClientDetail extends CssLayout implements View {
         // adjust table Info
         _tableInfo = new Table(Dict.CLIENT_DETAIL_TITLE);
         _tableInfo.addContainerProperty("Name", String.class, null);
-        _tableInfo.addContainerProperty("Nr", String.class, null);
+        _tableInfo.addContainerProperty("Value", String.class, null);
         _tableInfo.setWidth("100%");
         _content.addComponent(_tableInfo);
         
@@ -94,6 +94,8 @@ public class ClientDetail extends CssLayout implements View {
             // adjust table info
             _tableInfo.addItem(new Object[]{"Name", c.getName1()}, 1);
             _tableInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
+            _tableInfo.addItem(new Object[]{"ZIP, City", c.getZip() + " " + c.getCity()}, 3);
+            _tableInfo.addItem(new Object[]{"Coutry", c.getCountry()}, 4);
             _tableInfo.setPageLength(6);
             
             // clear table history
@@ -102,7 +104,7 @@ public class ClientDetail extends CssLayout implements View {
             // adjust table history
             ArrayList<ClientHistory> lst = c.getClientHistory();
             for(ClientHistory ch:lst ){
-                _tableHistory.addItem(new Object[]{ch.getTm().toString(),ch.getDescription()},lst.indexOf(ch)+1);
+                _tableHistory.addItem(new Object[]{ch.getTm().toString(), ch.getDescription()}, lst.indexOf(ch)+1);
             }
             _tableHistory.setPageLength(4);
             
