@@ -5,13 +5,17 @@
 package ch.bfh.black.apollo.model.data.settings;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.xml.sax.InputSource;
+
+/*******************************************************************************
+ * Project:        Apollo, MHC-PMS 
+ * Universtity: BFH Bern
+ * Course:      BTI7081q
+ * 
+ * Class:       Settings.java
+ * 
+ *-*****************************************************************************/
 
 
 /**
@@ -19,12 +23,16 @@ import org.xml.sax.InputSource;
  * @author Daniel Inversini
  * 
  * read out settings from settings.xml
- * create file if emtpy
+ * 29.05.2013 - changed to hardcoded instead of xml.... prototyping- reasons
+ * 
  */
 public class Settings {
     private static final String DEFAULT_CONFIG_FILE = "settings.xml";
     private static final Map<String, String> settings = new HashMap<String, String>();
     
+    /**
+     * inits the settings
+     */
     private static void initialize() {
         if (settings.isEmpty()) {
             try {
@@ -35,16 +43,6 @@ public class Settings {
                settings.put("DBhost","login-5.hoststar.ch:3306");
                
                
-                
-                
-                /*
-                Document doc = new SAXBuilder().build(new InputSource(Settings.class.getResourceAsStream(DEFAULT_CONFIG_FILE)));
-                System.out.println(doc.toString());
-                for (Iterator<?> it = doc.getRootElement().getChildren().iterator(); it.hasNext();) {
-                    Element element = (Element) it.next();
-                    settings.put(element.getName(), element.getValue());
-                }
-                * */
             } catch (Exception ex) {
                 System.out.println(ex.toString());
                 settings.clear();
@@ -52,7 +50,11 @@ public class Settings {
         }
     }
     
-    
+    /**
+     * gets the value from the settings
+     * @param pName the parameter name
+     * @return  the value which is stored
+     */
     public static String get(String pName) {
         initialize();
         return settings.containsKey(pName) ? settings.get(pName) : null;

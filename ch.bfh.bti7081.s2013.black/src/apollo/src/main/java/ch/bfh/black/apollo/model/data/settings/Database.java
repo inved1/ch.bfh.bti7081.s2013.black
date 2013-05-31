@@ -11,10 +11,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+      
+/*******************************************************************************
+ * Project:        Apollo, MHC-PMS 
+ * Universtity: BFH Bern
+ * Course:      BTI7081q
+ * 
+ * Class:       Database.java
+ * 
+ *-*****************************************************************************/
+
+
 /**
  *
  * @author Daniel Inversini
- * all static, blah blah dont want an object
+ * all static, dont need an object to be initialized at the moment
  * @returns always a resultSet
  * 
  */
@@ -22,7 +34,14 @@ public class Database {
     
     private static Connection myDBcnn = null;
     
-    
+    /**
+     * Init connection, read from Settings
+     * 
+     * 29.05.2013 - register mysqlDriver, instead of derby driver
+     * 
+     * 
+     * @throws SQLException if any error
+     */
     private static synchronized void init() throws SQLException {
          if (myDBcnn == null ) {
             String dbType = Settings.get("DBtype");
@@ -43,7 +62,12 @@ public class Database {
         }
     }
     
-    
+    /**
+     * 
+     * @param sqlCMD the command to be executed on the DB
+     * @return a ResultSet with the Information
+     * @throws SQLException 
+     */
     public static ResultSet exec(String sqlCMD) throws SQLException {
         init();
         Statement stmt = myDBcnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -60,6 +84,7 @@ public class Database {
         }
         
     }
+    
     
     public static ResultSet exec(String sqlCMD, ArrayList<String> pParameter) throws SQLException {
         String[] arrayOfParameters = new String[pParameter.size()];
