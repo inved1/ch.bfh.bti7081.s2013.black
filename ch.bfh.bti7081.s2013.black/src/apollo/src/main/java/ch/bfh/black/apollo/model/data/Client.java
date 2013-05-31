@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import ch.bfh.black.apollo.model.data.arch.ClientInterface;
 import ch.bfh.black.apollo.model.data.settings.Database;
+import java.util.Date;
       
 /*******************************************************************************
  * Project:        Apollo, MHC-PMS 
@@ -44,6 +45,7 @@ public class Client  implements ClientInterface  {
     public final static String CLIENT_ZIP = "3000";
     public final static String CLIENT_CITY = "Bern";
     public final static String CLIENT_COUNTRY = "CH";
+    public final static Date CLIENT_BIRTHDATE = null;
     
     //values for DB, with ID
     private int myID;
@@ -54,6 +56,7 @@ public class Client  implements ClientInterface  {
     private String myZIP;
     private String myCity;
     private String myCountry;
+    private Date myBirthdate;
     private String myCreatedBy;
     private String myCreatedTm;
     
@@ -72,6 +75,7 @@ public class Client  implements ClientInterface  {
         myZIP = CLIENT_ZIP;
         myCity = CLIENT_CITY;
         myCountry = CLIENT_COUNTRY;
+        myBirthdate = CLIENT_BIRTHDATE;
         myHistory = new ArrayList<ClientHistory>();
                
     }
@@ -101,6 +105,7 @@ public class Client  implements ClientInterface  {
         myZIP = resultSet.getString("ZIP");
         myCity = resultSet.getString("City");
         myCountry = resultSet.getString("Country");
+        myBirthdate = resultSet.getDate("Birthdate");
         
         
         
@@ -166,7 +171,7 @@ public class Client  implements ClientInterface  {
     @Override
     public void removeHistory(ClientHistory clienthistory) throws IllegalArgumentException {
         if (!myHistory.remove(clienthistory)){
-            throw new IllegalArgumentException("History not aviable on this CLient.");
+            throw new IllegalArgumentException("History not aviable on this Client.");
         }
     }
 
@@ -461,6 +466,29 @@ public class Client  implements ClientInterface  {
     public String getCountry() {
         return myCountry;
     }
+    
+    /**
+     * 
+     * @param myBirthdate 
+     */
+    @Override
+    public void setClientBirthdate(Date birthdate) throws IllegalArgumentException {
+        if (birthdate == null) {
+            throw new IllegalArgumentException("Birthdate is empty.");
+        }
+        myBirthdate = birthdate;
+    }
+    
+    /**
+     * gets the birthdate of the client
+     * @return the birthdate 
+     */
+    @Override
+    public Date getBirthdate() {
+        return myBirthdate;
+    }
+    
+    
 
     /**
      * gets the history of the client as an array

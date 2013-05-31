@@ -96,6 +96,7 @@ public class ClientDetail extends CssLayout implements View {
             _tableInfo.addItem(new Object[]{"Street", c.getStreet()}, 2);
             _tableInfo.addItem(new Object[]{"ZIP, City", c.getZip() + " " + c.getCity()}, 3);
             _tableInfo.addItem(new Object[]{"Coutry", c.getCountry()}, 4);
+            _tableInfo.addItem(new Object[]{"Birthdate", c.getBirthdate().toString()}, 5);
             _tableInfo.setPageLength(6);
             
             // clear table history

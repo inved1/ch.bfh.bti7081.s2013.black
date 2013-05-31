@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import ch.bfh.black.apollo.model.data.ClientHistory;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 
@@ -68,7 +69,8 @@ public interface ClientInterface {
     void setClientCountry(String country) throws IllegalArgumentException;
     String getCountry();
     
-    
+    void setClientBirthdate(Date birthdate) throws IllegalArgumentException;
+    Date getBirthdate();
     
     
 }
