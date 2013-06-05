@@ -68,7 +68,7 @@ public class Client {
     
     private ArrayList<String> myInfos;
     
-    public Client() throws Exception{
+    public Client() {
         this.myName = CLIENT_NAME;
         this.myStreet = CLIENT_STREET;
         this.myCity = CLIENT_CITY;
