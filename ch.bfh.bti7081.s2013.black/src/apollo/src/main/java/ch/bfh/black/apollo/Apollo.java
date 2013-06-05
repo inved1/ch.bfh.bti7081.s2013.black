@@ -5,6 +5,7 @@ import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.model.Dict;
 import ch.bfh.black.apollo.model.State;
 import ch.bfh.black.apollo.view.MainMenu;
+import ch.bfh.black.apollo.view.clientmanager.AddClientHistory;
 import ch.bfh.black.apollo.view.clientmanager.ClientChooser;
 import ch.bfh.black.apollo.view.clientmanager.ClientDetail;
 import com.vaadin.annotations.Theme;
@@ -50,5 +51,6 @@ public class Apollo extends UI
         _navigator.addView(MainMenu.VIEW_NAME, new MainMenu(clientManagerController));
         _navigator.addView(ClientChooser.VIEW_NAME, new ClientChooser(clientManagerController));
         _navigator.addView(ClientDetail.VIEW_NAME, new ClientDetail(clientManagerController));
+        _navigator.addView(AddClientHistory.VIEW_NAME, new AddClientHistory(clientManagerController));
     }
 }

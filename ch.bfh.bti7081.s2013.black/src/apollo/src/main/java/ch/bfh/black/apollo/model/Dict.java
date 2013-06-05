@@ -22,4 +22,8 @@ public class Dict {
     
     public static String CLIENT_DETAIL_TITLE = "Client-Details.";
     public static String CLIENT_DETAIL_HISTORY_TITLE = "Client-History.";
+    
+    public static String ADD_CLIENT_HISTORY_TITLE = "Add Client History Entry.";
+    public static String ADD_CLIENT_HISTORY_DATE_TITLE = "Enter Date.";
+    public static String ADD_CLIENT_HISTORY_TEXT_TITLE = "Enter Text.";
 }

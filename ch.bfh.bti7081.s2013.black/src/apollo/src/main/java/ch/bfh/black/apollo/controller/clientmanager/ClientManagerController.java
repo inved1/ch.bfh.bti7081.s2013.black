@@ -3,6 +3,7 @@ package ch.bfh.black.apollo.controller.clientmanager;
 import ch.bfh.black.apollo.controller.Controller;
 import ch.bfh.black.apollo.controller.MenuManager;
 import ch.bfh.black.apollo.model.State;
+import com.vaadin.ui.Notification;
 
 /**
  * Handles ClientManager specific controller functionality.
@@ -36,6 +37,11 @@ public class ClientManagerController extends Controller {
     public void chooseClient(int id) {
         _state.clientId = id;
         _menuManager.setMenuState(_menuManager.getClientDetailState());
+        _menuManager.init();
+    }
+    
+    public void addClientHistory() {
+        _menuManager.setMenuState(_menuManager.getAddClientHistoryState());
         _menuManager.init();
     }
 }

@@ -65,6 +65,19 @@ public class ClientDetail extends CssLayout implements View {
         _tableHistory.setWidth("100%");
         _content.addComponent(_tableHistory);
         
+        // create add client history button
+        Button buttonAddClientHistory = new Button("add client history");
+        buttonAddClientHistory.setStyleName("button-add-client-history");
+        buttonAddClientHistory.addClickListener(new Button.ClickListener() {
+
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+
+                _clientManagerController.addClientHistory();
+            }
+        });
+        _content.addComponent(buttonAddClientHistory);
+        
         // create back button
         Button button = new Button("back");
         button.setStyleName("button-back");
