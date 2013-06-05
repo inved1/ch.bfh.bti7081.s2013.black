@@ -49,10 +49,10 @@ public class ClientHistoryTest {
     @Test
     public void setClientIDBeyondRange() {
         try {
-            clientHistory.setClientID(1);
-            fail("incorrect");
+            clientHistory.setClientID(-1);
+            fail("should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException iaEx) {
-            assertTrue("correct exception thrown", true);
+            assertTrue("expected: true", true);
         }
     }
     
@@ -60,8 +60,35 @@ public class ClientHistoryTest {
     public void setClientIDNull() {
         try {
             clientHistory.setClientID(null);
+            fail("should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException iaEx) {
-            assertTrue("correct exception thrown", true);
+            assertTrue("expected: true", true);
+        }
+    }
+    
+    @Test
+    public void setDescriptionInRange() {
+        clientHistory.setDescription("Hello World!");
+        assertEquals("expected: 'Hello World!'", "Hello World!", clientHistory.getDescription());
+    }
+    
+    @Test
+    public void setDescriptionBeyondRange() {
+        try {
+            char[] txt = new char[8001];
+            clientHistory.setDescription(new String(txt));
+            fail("should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException iaEx) {
+            assertTrue("expected: true", true);
+        }
+    }
+    
+    public void setDescriptionNull() {
+        try {
+            clientHistory.setDescription(null);
+            fail("should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException iaEx) {
+            assertTrue("expected: true", true);
         }
     }
 }
