@@ -46,25 +46,15 @@ public class ClientTest {
         assertEquals("expected: 'Hans Muster'", "Hans Muster", client.getName1());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName1BeyondRange() {
-        try {
-            char[] txt = new char[299];
-            client.setClientName1(new String(txt));
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        char[] txt = new char[299];
+        client.setClientName1(new String(txt));
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName1Null() {
-        try {
-            client.setClientName1(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientName1(null);   
     }
     
     @Test
@@ -73,25 +63,15 @@ public class ClientTest {
         assertEquals("expected: 'Hans Muster'", "Hans Muster", client.getName2());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName2BeyondRange() {
-        try {
-            char[] txt = new char[299];
-            client.setClientName2(new String(txt));
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        char[] txt = new char[299];
+        client.setClientName2(new String(txt));
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName2Null() {
-        try {
-            client.setClientName1(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientName1(null);
     }
     
     @Test
@@ -100,25 +80,15 @@ public class ClientTest {
         assertEquals("expected: 'Hans Muster'", "Hans Muster", client.getName3());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName3BeyondRange() {
-        try {
-            char[] txt = new char[299];
-            client.setClientName3(new String(txt));
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        char[] txt = new char[299];
+        client.setClientName3(new String(txt));
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientName3Null() {
-        try {
-            client.setClientName3(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientName3(null);
     }
     
     @Test
@@ -127,25 +97,15 @@ public class ClientTest {
         assertEquals("expected: 'Musterstrasse 123'", "Musterstrasse 123", client.getStreet());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientStreetBeyondRange() {
-        try {
-            char[] txt = new char[299];
-            client.setClientStreet(new String(txt));
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        char[] txt = new char[299];
+        client.setClientStreet(new String(txt));
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientStreetNull() {
-        try {
-            client.setClientStreet(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientStreet(null);
     }
     
     @Test
@@ -154,24 +114,14 @@ public class ClientTest {
         assertEquals("expected: '3600'", "3600", client.getZip());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientZIPBeyondRange() {
-        try {
-            client.setClientZIP("12345");
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientZIP("12345");
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientZIPNull() {
-        try {
-            client.setClientZIP(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientZIP(null);
     }
     
     @Test
@@ -180,25 +130,15 @@ public class ClientTest {
         assertEquals("expected: 'Musterstadt'", "Musterstadt", client.getCity());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientCityBeyondRange() {
-        try {
-            char[] txt = new char[299];
-            client.setClientCity(new String(txt));
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        char[] txt = new char[299];
+        client.setClientCity(new String(txt));
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientCityNull() {
-        try {
-            client.setClientCity(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientCity(null);
     }
     
     @Test
@@ -207,33 +147,18 @@ public class ClientTest {
         assertEquals("expected: 'CH'", "CH", client.getCountry());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientCountryBeyondRange() {
-        try {
-            client.setClientCountry("SUI");
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientCountry("SUI");
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientCountryNull() {
-        try {
-            client.setClientCountry(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientCountry(null);
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setClientBirthdateNull() {
-        try {
-            client.setClientBirthdate(null);
-            fail("should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException iaEx) {
-            assertTrue("expected: true", true);
-        }
+        client.setClientBirthdate(null);
     }
 }
