@@ -26,4 +26,6 @@ public class Dict {
     public static String ADD_CLIENT_HISTORY_TITLE = "Add Client History Entry.";
     public static String ADD_CLIENT_HISTORY_DATE_TITLE = "Enter Date.";
     public static String ADD_CLIENT_HISTORY_TEXT_TITLE = "Enter Text.";
+    
+    public static String DATE_NOT_CORRECT = "Date is not correct.";
 }

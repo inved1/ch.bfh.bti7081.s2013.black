@@ -7,13 +7,16 @@ package ch.bfh.black.apollo.view.clientmanager;
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.model.Dict;
 import ch.bfh.black.apollo.view.ContentHelper;
+import com.vaadin.data.Property;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.PopupDateField;
+import com.vaadin.ui.TextArea;
 import java.util.Date;
 
 /**
@@ -30,6 +33,12 @@ public class AddClientHistory extends CssLayout implements View {
     private ContentHelper _contentHelper;
     
     private CssLayout _content;
+    private PopupDateField _datefield;
+    private TextArea _textinput;
+    private boolean _inputIsCorrect = false;
+    
+    private Date _inputDate;
+    private String _inputComment;
     
     public AddClientHistory(ClientManagerController clientManagerController) {
         
@@ -60,18 +69,66 @@ public class AddClientHistory extends CssLayout implements View {
         _content.addComponent(titleDateInput);
         
         // Create a DateField with the default style.
-        PopupDateField date = new PopupDateField();
+        _datefield = new PopupDateField() {
+            
+            @Override
+            protected Date handleUnparsableDateString(String dateString) throws com.vaadin.data.Property.ReadOnlyException {
+                
+                Notification.show(Dict.DATE_NOT_CORRECT, Notification.Type.ERROR_MESSAGE);
+                
+                _inputIsCorrect = false;
+                
+                //throw new com.vaadin.data.Property.ReadOnlyException("Not a number");
+                
+                return new Date();
+                //return null;
+            }
+            
+        };
 
         // Set the date and time to present.
-        date.setValue(new Date());
-        date.setResolution(DateField.RESOLUTION_DAY);
-        date.setStyleName("date-input");
-        _content.addComponent(date);
+        _datefield.setValue(new Date());
+        _datefield.setResolution(DateField.RESOLUTION_DAY);
+        _datefield.setStyleName("date-input");
+        _datefield.setDateFormat("dd.MM.yyyy");
+        _datefield.setStyleName("date-input");
+        _content.addComponent(_datefield);
         
         // set title of text input
         Label titleTextInput = new Label(Dict.ADD_CLIENT_HISTORY_TEXT_TITLE);
         titleTextInput.setStyleName("add-client-history-text-title");
         _content.addComponent(titleTextInput);
+        
+        // create textinput
+        _textinput = new TextArea("");
+        _textinput.setRows(8);
+        _textinput.setStyleName("textarea-comment");
+        _content.addComponent(_textinput);
+        
+        
+        // create button to add history entry
+        Button buttonAdHistory = new Button("add");
+        buttonAdHistory.setStyleName("button-back");
+        buttonAdHistory.setStyleName("button-add-client-history");
+        buttonAdHistory.addClickListener(new Button.ClickListener() {
+
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                
+                //_inputIsCorrect = true;
+                
+                try{
+                    _inputDate = _datefield.getValue(); 
+                } catch(Exception e) {
+                    Notification.show("yeah yeah yeah");
+                }
+               
+                _inputComment = _textinput.getValue();
+                
+                createEntry();
+            }
+        });
+        _content.addComponent(buttonAdHistory);
         
         
         // create back button and add listener
@@ -89,6 +146,21 @@ public class AddClientHistory extends CssLayout implements View {
         
         // draw footer
         _contentHelper.drawFooter();
+    }
+    
+    private void createEntry() {
+        
+        /*
+        if(_inputIsCorrect) {
+            Notification.show("save in DB now");
+        }
+        */
+        
+        //Notification.show(_inputComment);
+        //Notification.show(_inputDate.toString());
+        Notification.show(String.valueOf(_clientManagerController.getState().clientId));
+        
+        
     }
     
     
