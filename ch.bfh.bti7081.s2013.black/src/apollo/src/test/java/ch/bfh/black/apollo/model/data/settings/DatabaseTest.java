@@ -49,7 +49,7 @@ public class DatabaseTest {
     }
     
     @Test (expected = SQLException.class)
-    public void setelectExecStringFailure() throws SQLException{
+    public void setSelectExecStringFailure() throws SQLException{
         Database.exec("blubb");
     }
     
@@ -63,7 +63,10 @@ public class DatabaseTest {
         Database.exec("UPDATE TB_CLIENT SET Name1 = 'Daniel Inversini' WHERE ID = 1");
         
     }
-    
+    @Test(expected = SQLException.class)
+    public void setUpdateExecStringWrong() throws SQLException {
+        Database.exec("UPDATE blahblahblah WHERE Modul=SoftwarEngineeringAndDesing");
+    }
     
     
     
