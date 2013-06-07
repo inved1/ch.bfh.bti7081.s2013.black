@@ -44,14 +44,27 @@ public class DatabaseTest {
     }
 
     @Test
-    public void setExecString() throws SQLException{
+    public void setSelectExecString() throws SQLException{
         Database.exec("SELECT '111'");
     }
     
     @Test (expected = SQLException.class)
-    public void setExecStringFailure() throws SQLException{
+    public void setelectExecStringFailure() throws SQLException{
         Database.exec("blubb");
     }
+    
+    @Test 
+    public void setUpdateExecString() throws SQLException {
+        Database.exec("UPDATE TB_CLIENT SET Name1 = '' WHERE 1=2");
+        
+    }
+    @Test
+    public void setUpdateExecStringReal() throws SQLException{
+        Database.exec("UPDATE TB_CLIENT SET Name1 = 'Daniel Inversini' WHERE ID = 1");
+        
+    }
+    
+    
     
     
     
