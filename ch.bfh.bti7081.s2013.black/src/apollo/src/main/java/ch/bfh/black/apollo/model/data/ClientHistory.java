@@ -83,8 +83,8 @@ public class ClientHistory implements ClientHistoryInterface{
             resultSet = Database.exec("UPDATE "+SQL_TABLENAME_CLIENTHISTORY+" SET ID_Client=?, Description=?", param);
         } else { //INSERT
             String[] param = { Integer.toString(myIDClient),myDesc};
-            Database.exec("INSERT INTO "+SQL_TABLENAME_CLIENTHISTORY+" (ID_Client, Description) VALUES (?, ?)", param);
-            resultSet = Database.exec("SELECT max(ID) FROM "+SQL_TABLENAME_CLIENTHISTORY);
+            Database.exec("INSERT INTO "+SQL_TABLENAME_CLIENTHISTORY+" (ID_Client, Description) SELECT ?, ?", param);
+            resultSet = Database.exec("SELECT MAX(ID) AS ID FROM "+SQL_TABLENAME_CLIENTHISTORY);
             resultSet.first();
             myID = resultSet.getInt("ID");
         }

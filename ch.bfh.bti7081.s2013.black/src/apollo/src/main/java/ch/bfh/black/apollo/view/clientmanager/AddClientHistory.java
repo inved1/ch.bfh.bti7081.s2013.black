@@ -6,6 +6,8 @@ package ch.bfh.black.apollo.view.clientmanager;
 
 import ch.bfh.black.apollo.controller.clientmanager.ClientManagerController;
 import ch.bfh.black.apollo.model.Dict;
+import ch.bfh.black.apollo.model.data.Client;
+import ch.bfh.black.apollo.model.data.ClientHistory;
 import ch.bfh.black.apollo.view.ContentHelper;
 import com.vaadin.data.Property;
 import com.vaadin.navigator.View;
@@ -17,7 +19,10 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextArea;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Provides Input-Fields to add a new client history entry.
@@ -149,16 +154,29 @@ public class AddClientHistory extends CssLayout implements View {
     }
     
     private void createEntry() {
-        
-        /*
-        if(_inputIsCorrect) {
-            Notification.show("save in DB now");
+        try {
+            /*
+            if(_inputIsCorrect) {
+                Notification.show("save in DB now");
+            }
+            */
+            
+            //Notification.show(_inputComment);
+            //Notification.show(_inputDate.toString());
+            //Notification.show(String.valueOf(_clientManagerController.getState().clientId));
+            Client c =  new Client(_clientManagerController.getState().clientId);
+            ClientHistory ch = new ClientHistory();
+            ch.setDescription(_inputComment);
+            ch.setClientID(_clientManagerController.getState().clientId);
+            ch.save();
+            c.addHistory(ch);
+            ch.save();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AddClientHistory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(AddClientHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
-        
-        //Notification.show(_inputComment);
-        //Notification.show(_inputDate.toString());
-        Notification.show(String.valueOf(_clientManagerController.getState().clientId));
         
         
     }
