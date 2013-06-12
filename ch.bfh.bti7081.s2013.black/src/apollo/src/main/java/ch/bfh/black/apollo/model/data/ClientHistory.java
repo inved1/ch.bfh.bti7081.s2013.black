@@ -80,7 +80,7 @@ public class ClientHistory implements ClientHistoryInterface{
         ResultSet resultSet;
         if (myID > 0) { //UPDATE
             String[] param = { Integer.toString(myIDClient),myDesc,Integer.toString(myID)};
-            resultSet = Database.exec("UPDATE "+SQL_TABLENAME_CLIENTHISTORY+" SET ID_Client=?, Description=? WHERE ID =?", param);
+            Database.exec("UPDATE "+SQL_TABLENAME_CLIENTHISTORY+" SET ID_Client=?, Description=? WHERE ID =?", param);
         } else { //INSERT
             String[] param = { Integer.toString(myIDClient),myDesc};
             Database.exec("INSERT INTO "+SQL_TABLENAME_CLIENTHISTORY+" (ID_Client, Description) SELECT ?, ?", param);
@@ -128,7 +128,7 @@ public class ClientHistory implements ClientHistoryInterface{
      * @return Timestamp
      */
     public Date getTm(){
-        return myTm;
+        return (Date) myTm.clone();
     }
     
     /**

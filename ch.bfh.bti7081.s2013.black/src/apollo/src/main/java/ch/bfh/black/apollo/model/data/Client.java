@@ -59,8 +59,7 @@ public class Client  implements ClientInterface  {
     private String myCity;
     private String myCountry;
     private Date myBirthdate;
-    private String myCreatedBy;
-    private String myCreatedTm;
+
     
     private ArrayList<ClientHistory> myHistory;
     
@@ -482,7 +481,7 @@ public class Client  implements ClientInterface  {
         if (birthdate == null) {
             throw new IllegalArgumentException("Birthdate is empty.");
         }
-        myBirthdate = birthdate;
+        myBirthdate = (Date) birthdate.clone();
     }
     
     /**
@@ -491,7 +490,9 @@ public class Client  implements ClientInterface  {
      */
     @Override
     public Date getBirthdate() {
-        return myBirthdate;
+        //clone Date because it's an object, instead of i.e. an integer
+        //otherwise we'll only return a refeerence, which could be modified without the "setter"
+        return (Date)myBirthdate.clone();
     }
     
     

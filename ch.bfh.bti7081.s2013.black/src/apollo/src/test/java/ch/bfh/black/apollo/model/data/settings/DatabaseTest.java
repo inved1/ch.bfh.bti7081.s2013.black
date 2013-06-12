@@ -19,11 +19,9 @@ import static org.junit.Assert.*;
 public class DatabaseTest {
     
     
-    Database myDatabase;
-    
     public DatabaseTest() {
         
-        myDatabase = new Database();
+        
         
     }
     

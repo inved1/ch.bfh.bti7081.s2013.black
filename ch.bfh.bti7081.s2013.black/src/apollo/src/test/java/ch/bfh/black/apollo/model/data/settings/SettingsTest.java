@@ -17,10 +17,9 @@ import static org.junit.Assert.*;
  */
 public class SettingsTest {
     
-    Settings mySettings;
     
     public SettingsTest() {
-        mySettings = new Settings();
+        
     }
     
     @BeforeClass
