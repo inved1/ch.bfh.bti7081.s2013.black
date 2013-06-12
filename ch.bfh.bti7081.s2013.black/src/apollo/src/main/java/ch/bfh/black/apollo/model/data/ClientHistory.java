@@ -79,8 +79,8 @@ public class ClientHistory implements ClientHistoryInterface{
     public void save() throws SQLException {
         ResultSet resultSet;
         if (myID > 0) { //UPDATE
-            String[] param = { Integer.toString(myIDClient),myDesc};
-            resultSet = Database.exec("UPDATE "+SQL_TABLENAME_CLIENTHISTORY+" SET ID_Client=?, Description=?", param);
+            String[] param = { Integer.toString(myIDClient),myDesc,Integer.toString(myID)};
+            resultSet = Database.exec("UPDATE "+SQL_TABLENAME_CLIENTHISTORY+" SET ID_Client=?, Description=? WHERE ID =?", param);
         } else { //INSERT
             String[] param = { Integer.toString(myIDClient),myDesc};
             Database.exec("INSERT INTO "+SQL_TABLENAME_CLIENTHISTORY+" (ID_Client, Description) SELECT ?, ?", param);

@@ -168,9 +168,9 @@ public class AddClientHistory extends CssLayout implements View {
             ClientHistory ch = new ClientHistory();
             ch.setDescription(_inputComment);
             ch.setClientID(_clientManagerController.getState().clientId);
-            ch.save();
+            //ch.save();
             c.addHistory(ch);
-            ch.save();
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(AddClientHistory.class.getName()).log(Level.SEVERE, null, ex);

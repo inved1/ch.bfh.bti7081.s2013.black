@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import ch.bfh.black.apollo.model.data.arch.ClientInterface;
 import ch.bfh.black.apollo.model.data.settings.Database;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
       
 /*******************************************************************************
  * Project:        Apollo, MHC-PMS 
@@ -159,7 +161,11 @@ public class Client  implements ClientInterface  {
         }
         
         myHistory.add(clienthistory);
-                    
+        try {
+            clienthistory.save();
+        } catch (SQLException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
