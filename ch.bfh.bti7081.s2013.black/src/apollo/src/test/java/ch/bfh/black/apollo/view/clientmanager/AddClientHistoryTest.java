@@ -2,22 +2,24 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bfh.black.apollo;
+package ch.bfh.black.apollo.view.clientmanager;
 
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.navigator.ViewChangeListener;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Daniel Inversini
  */
-public class ApolloTest {
+public class AddClientHistoryTest {
     
-    public ApolloTest() {
+    ClientDetail cd ;
+    public AddClientHistoryTest() {
     }
     
     @BeforeClass
@@ -37,14 +39,11 @@ public class ApolloTest {
     }
 
     /**
-     * Test of init method, of class Apollo.
+     * Test of enter method, of class AddClientHistory.
      */
-    @Test(expected = NullPointerException.class)
-    public void testInitNULLRequest() {
-        System.out.println("init");
-        VaadinRequest request = null;
-        Apollo instance = new Apollo();
-        instance.init(request);
+    @Test
 
+    public void testClientHistoryConstructor(){
+        cd = new ClientDetail(null);
     }
 }

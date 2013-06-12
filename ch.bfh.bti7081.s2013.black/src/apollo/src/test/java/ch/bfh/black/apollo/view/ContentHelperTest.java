@@ -2,22 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bfh.black.apollo;
+package ch.bfh.black.apollo.view;
 
-import com.vaadin.server.VaadinRequest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Daniel Inversini
  */
-public class ApolloTest {
+public class ContentHelperTest {
     
-    public ApolloTest() {
+    ContentHelper ch;
+    
+    public ContentHelperTest() {
+        
     }
     
     @BeforeClass
@@ -36,15 +39,14 @@ public class ApolloTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of init method, of class Apollo.
-     */
-    @Test(expected = NullPointerException.class)
-    public void testInitNULLRequest() {
-        System.out.println("init");
-        VaadinRequest request = null;
-        Apollo instance = new Apollo();
-        instance.init(request);
 
+    @Test (expected = NullPointerException.class)
+    public void testConstrutorNull(){
+        ch = new ContentHelper(null);
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void testConstructorDoubleNull(){
+        ch = new ContentHelper(null,null);
     }
 }

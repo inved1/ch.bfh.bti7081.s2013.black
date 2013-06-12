@@ -1,3 +1,5 @@
+package ch.bfh.black.apollo.data;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -72,4 +74,13 @@ public class ClientHistoryTest {
     public void setDescriptionNull() {
         clientHistory.setDescription(null);
     }
+    
+    @Test
+    public void saveHistoryWrongClientID() throws SQLException {
+       
+        clientHistory.setClientID(999);
+        clientHistory.setDescription("test");
+        clientHistory.save();
+    }
+            
 }
