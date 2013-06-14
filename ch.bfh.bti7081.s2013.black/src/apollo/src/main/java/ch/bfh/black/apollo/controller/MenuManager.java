@@ -27,6 +27,10 @@ public class MenuManager {
     private ClientDetailState _clientDetailState;
     private AddClientHistoryState _addClienetHistoryState;
     
+    public MenuManager() {
+        
+    }
+    
     /**
      * @param nav 
      */
@@ -57,7 +61,10 @@ public class MenuManager {
         _menuState.back();
     }
     
-    public void setMenuState(MenuState state) {
+    public void setMenuState(MenuState state) throws IllegalArgumentException {
+        if (state == null) {
+            throw new IllegalArgumentException("state is null");
+        }
         _menuState = state;
     }
     
