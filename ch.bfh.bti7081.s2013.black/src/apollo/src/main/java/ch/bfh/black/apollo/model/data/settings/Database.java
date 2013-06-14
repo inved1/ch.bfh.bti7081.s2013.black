@@ -63,6 +63,7 @@ public class Database {
     }
     
     /**
+     * executes an sql-commad with a statement on the DB. switches between select and insert/update/delete
      * 
      * @param sqlCMD the command to be executed on the DB
      * @return a ResultSet with the Information
@@ -84,14 +85,27 @@ public class Database {
         }
         
     }
-    
+    /**
+     * executes an sql command on the db, with parameters
+     * 
+     * @param sqlCMD the command to be executed 
+     * @param pParameter the parametes, arraylist
+     * @return a resultSet
+     * @throws SQLException if any error on the DB
+     */
     
     public static ResultSet exec(String sqlCMD, ArrayList<String> pParameter) throws SQLException {
         String[] arrayOfParameters = new String[pParameter.size()];
         return exec(sqlCMD, pParameter.toArray(arrayOfParameters));
     }
     
-        
+        /**
+         * executes an sql command on the DB, with parameters, replaces paremeters with '?'
+         * @param sqlCMD the command
+         * @param pParameter the parameters
+         * @return a resultset with the result
+         * @throws SQLException  if any error on the DB
+         */
      public static ResultSet exec(String sqlCMD, String[] pParameter) throws SQLException {
         init();
         PreparedStatement prepStatement = myDBcnn.prepareStatement(sqlCMD);
