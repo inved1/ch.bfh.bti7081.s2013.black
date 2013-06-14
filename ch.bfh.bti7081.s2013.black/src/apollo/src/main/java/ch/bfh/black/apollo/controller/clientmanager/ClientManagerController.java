@@ -34,7 +34,10 @@ public class ClientManagerController extends Controller {
      * 
      * @param id 
      */
-    public void chooseClient(int id) {
+    public void chooseClient(int id) throws IllegalArgumentException {
+        if (id <= 0) {
+            throw new IllegalArgumentException();
+        }
         _state.clientId = id;
         _menuManager.setMenuState(_menuManager.getClientDetailState());
         _menuManager.init();
