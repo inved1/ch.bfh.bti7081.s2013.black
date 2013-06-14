@@ -75,12 +75,12 @@ public class ClientHistoryTest {
         clientHistory.setDescription(null);
     }
     
-    @Test
-    public void saveHistoryWrongClientID() throws SQLException {
+    //@Test
+   // public void saveHistoryWrongClientID() throws SQLException {
        
-        clientHistory.setClientID(999);
-        clientHistory.setDescription("test");
-        clientHistory.save();
-    }
+   //     clientHistory.setClientID(999);
+   //     clientHistory.setDescription("test");
+   //     clientHistory.save();
+   // }
             
 }

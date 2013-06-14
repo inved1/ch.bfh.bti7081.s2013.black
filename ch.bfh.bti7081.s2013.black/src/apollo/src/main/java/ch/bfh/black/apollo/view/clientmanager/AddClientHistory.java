@@ -131,6 +131,10 @@ public class AddClientHistory extends CssLayout implements View {
                 _inputComment = _textinput.getValue();
                 
                 createEntry();
+                
+                _textinput.setValue("");
+                _clientManagerController.back();
+                
             }
         });
         _content.addComponent(buttonAdHistory);
@@ -168,7 +172,7 @@ public class AddClientHistory extends CssLayout implements View {
             ClientHistory ch = new ClientHistory();
             ch.setDescription(_inputComment);
             ch.setClientID(_clientManagerController.getState().clientId);
-            //ch.save();
+            ch.save();
             c.addHistory(ch);
             
             

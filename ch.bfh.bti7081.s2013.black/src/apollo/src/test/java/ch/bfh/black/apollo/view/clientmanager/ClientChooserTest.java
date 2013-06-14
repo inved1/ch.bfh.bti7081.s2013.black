@@ -45,5 +45,6 @@ public class ClientChooserTest {
     public void testClientChooserConstructorNull(){
         cc = new ClientChooser(null);
         
+        
     }
 }
